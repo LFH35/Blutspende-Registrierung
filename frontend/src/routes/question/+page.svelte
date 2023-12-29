@@ -74,6 +74,7 @@
 {/if}-->
 
 <script>
+    // #TODO script not working
     function toggleCheck(checkbox) {
     // Suchen Sie das übergeordnete <div> des geänderten Kontrollkästchens
     let parentDiv = checkbox.closest('.card');
