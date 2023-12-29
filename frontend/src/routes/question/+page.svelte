@@ -64,11 +64,12 @@
     </div>
     <button id="weiterbtn" class="btn-style1 weiterbtn" type="submit">Weiter</button>
 
-    <p>Denken Sie an Ihren gültigen Personalausweis oder einen gültigen Reisepass! <br>
+    <p>Denken Sie bitte an Ihren gültigen Personalausweis oder einen gültigen Reisepass! <br>
         Vergessen Sie nicht vor und nach der Blutspende außreichend zu trinken!</p>
 </form>
 
-<!--{#if current_user.admin}
+<!-- #TODO if ist bereits Svelte, python verknüpfung fehlt
+    {#if current_user.admin}
         <a class="admin" href="/admin">admin</a>
 {/if}-->
 
