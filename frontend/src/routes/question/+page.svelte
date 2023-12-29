@@ -68,7 +68,8 @@
         Vergessen Sie nicht vor und nach der Blutspende außreichend zu trinken!</p>
 </form>
 
-<!--{#if current_user.admin}
+<!-- #TODO if ist bereits Svelte, python verknüpfung fehlt
+    {#if current_user.admin}
         <a class="admin" href="/admin">admin</a>
 {/if}-->
 
