@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+    --main-background-color: #D97E7E;
+    --main-bloody-red-color: #A60F0F;
+    --main-dark-red-color: #590202;
+    --main-light-blue-color: #3DE0F2;
+    --main-blue-color: #0CB1F2;
+    --main-dark-blue-color: #0B508C;
+    --main-white-color: white;
+    --main-light-grey-color: #737373;
+    --main-grey-color: #595959;
+    --main-light-green-color: #94BF36;
+    --main-green-color: #375915;
+}
+
+body {
+    margin: auto;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--main-background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .Blood-LeftBottom {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+
+    main {
+        z-index: 10;
+        background-color: var(--main-white-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: var(--main-bloody-red-color);
+        width: 375px;
+        height: 700px;
+        border-radius: 25px;
+    }
+
+    .Blood-RightTop {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
+@media (max-width: 768px) {
+    body {
+        background-color: var(--main-white-color);
+    
+        main {
+            width: 100vw;
+            height: 100vh;
+            margin: auto;
+            border-radius: 0;
+        }
+    }
+
+    .Blood-LeftBottom, .Blood-RightTop {
+        visibility: hidden;
+    }
+}
