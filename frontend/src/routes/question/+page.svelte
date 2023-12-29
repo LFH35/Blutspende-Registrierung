@@ -1,75 +1,76 @@
-<img src="../static/img/Blood-LeftBottom.svg" class="Blood-LeftBottom" alt="Left-Blood">
-<main>
-    <form method="POST" action="/checkdonator">
-        <div class="card">
-            <b>Sind Sie im Alter zwischen 18 und 60 Jahre?</b>
-            <div class="answer">
-                <label class="custom-checkbox">
-                    <input type="checkbox" id="option1" name="adult" onchange="toggleCheck(this); checkButtons()" class="checkbox-ja">
-                    <span class="checkbox">JA</span>
-                </label>
-            
-                <label class="custom-checkbox">
-                    <input type="checkbox" id="option2" name="group2" onchange="toggleCheck(this); checkButtons()" class="checkbox-nein">
-                    <span class="checkbox">NEIN</span>
-                </label>
-            </div>
-        </div>
-    
-        <div class="card">
-            <b>Wiegen Sie über 50kg?</b>
-            <div class="answer">
-                <label class="custom-checkbox">
-                    <input type="checkbox" id="option1" name="weight" onchange="toggleCheck(this); checkButtons()" class="checkbox-ja">
-                    <span class="checkbox">JA</span>
-                </label>
-            
-                <label class="custom-checkbox">
-                    <input type="checkbox" id="option2" name="group3" onchange="toggleCheck(this); checkButtons()" class="checkbox-nein">
-                    <span class="checkbox">NEIN</span>
-                </label>
-            </div>
-        </div>
-    
-        <div class="card">
-            <b>Fühlen Sie sich gesund?</b>
-            <div class="answer">
-                <label class="custom-checkbox">
-                    <input type="checkbox" id="option1" name="healthy" onchange="toggleCheck(this); checkButtons()" class="checkbox-ja">
-                    <span class="checkbox">JA</span>
-                </label>
-            
-                <label class="custom-checkbox">
-                    <input type="checkbox" id="option2" name="group4" onchange="toggleCheck(this); checkButtons()" class="checkbox-nein">
-                    <span class="checkbox">NEIN</span>
-                </label>
-            </div>
-        </div>
+<style lang="scss">
+    @import 'style.scss';
+</style>
 
-        <div class="card">
-            <b>Wurde Ihnen in den letzten vier Monaten Tattoos, Piercings oder Ohrringe gestochen?</b>
-            <div class="answer">
-                <label class="custom-checkbox">
-                    <input type="checkbox" id="option1" name="tattoos" onchange="toggleCheck(this); checkButtons()" class="checkbox-ja">
-                    <span class="checkbox">JA</span>
-                </label>
-            
-                <label class="custom-checkbox">
-                    <input type="checkbox" id="option2" name="group5" onchange="toggleCheck(this); checkButtons()" class="checkbox-nein">
-                    <span class="checkbox">NEIN</span>
-                </label>
-            </div>
+<form method="POST" action="/checkdonator">
+    <div class="card">
+        <b>Sind Sie im Alter zwischen 18 und 60 Jahre?</b>
+        <div class="answer">
+            <label class="custom-checkbox">
+                <input type="checkbox" id="option1" name="adult" onchange="toggleCheck(this); checkButtons()" class="checkbox-ja">
+                <span class="checkbox">JA</span>
+            </label>
+        
+            <label class="custom-checkbox">
+                <input type="checkbox" id="option2" name="group2" onchange="toggleCheck(this); checkButtons()" class="checkbox-nein">
+                <span class="checkbox">NEIN</span>
+            </label>
         </div>
-        <button id="weiterbtn" class="btn-style1 weiterbtn" type="submit">Weiter</button>
+    </div>
 
-        <p>Denken Sie an Ihren gültigen Personalausweis oder einen gültigen Reisepass! <br>
-            Vergessen Sie nicht vor und nach der Blutspende außreichend zu trinken!</p>
-    </form>
-</main>
-{#if current_user.admin}
+    <div class="card">
+        <b>Wiegen Sie über 50kg?</b>
+        <div class="answer">
+            <label class="custom-checkbox">
+                <input type="checkbox" id="option1" name="weight" onchange="toggleCheck(this); checkButtons()" class="checkbox-ja">
+                <span class="checkbox">JA</span>
+            </label>
+        
+            <label class="custom-checkbox">
+                <input type="checkbox" id="option2" name="group3" onchange="toggleCheck(this); checkButtons()" class="checkbox-nein">
+                <span class="checkbox">NEIN</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="card">
+        <b>Fühlen Sie sich gesund?</b>
+        <div class="answer">
+            <label class="custom-checkbox">
+                <input type="checkbox" id="option1" name="healthy" onchange="toggleCheck(this); checkButtons()" class="checkbox-ja">
+                <span class="checkbox">JA</span>
+            </label>
+        
+            <label class="custom-checkbox">
+                <input type="checkbox" id="option2" name="group4" onchange="toggleCheck(this); checkButtons()" class="checkbox-nein">
+                <span class="checkbox">NEIN</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="card">
+        <b>Wurde Ihnen in den letzten vier Monaten Tattoos, Piercings oder Ohrringe gestochen?</b>
+        <div class="answer">
+            <label class="custom-checkbox">
+                <input type="checkbox" id="option1" name="tattoos" onchange="toggleCheck(this); checkButtons()" class="checkbox-ja">
+                <span class="checkbox">JA</span>
+            </label>
+        
+            <label class="custom-checkbox">
+                <input type="checkbox" id="option2" name="group5" onchange="toggleCheck(this); checkButtons()" class="checkbox-nein">
+                <span class="checkbox">NEIN</span>
+            </label>
+        </div>
+    </div>
+    <button id="weiterbtn" class="btn-style1 weiterbtn" type="submit">Weiter</button>
+
+    <p>Denken Sie an Ihren gültigen Personalausweis oder einen gültigen Reisepass! <br>
+        Vergessen Sie nicht vor und nach der Blutspende außreichend zu trinken!</p>
+</form>
+
+<!--{#if current_user.admin}
         <a class="admin" href="/admin">admin</a>
-{/if}
-<img src="../static/img/Blood-RightTop.svg" class="Blood-RightTop" alt="Right-Blood">
+{/if}-->
 
 <script>
     function toggleCheck(checkbox) {
