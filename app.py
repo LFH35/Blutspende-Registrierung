@@ -53,7 +53,7 @@ def index():
         return render_template("login.html")
 
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['POST'])
 def login():
     users_name = request.form["name"]
     users_email = request.form["email"]
@@ -71,7 +71,7 @@ def login():
         Doner.create(unique_id, users_name, users_email)
 
     # Send user back to homepage
-    return user, 200
+    return redirect(request.base_url + "/question")
 
 
 @app.route("/iservlogin")
@@ -133,7 +133,7 @@ def callback():
         Doner.create(unique_id, users_name, users_email)
 
     # Send user back to homepage
-    return redirect(request.url)
+    return redirect(request.url + "/question")
 
 
 @app.route("/logout")
