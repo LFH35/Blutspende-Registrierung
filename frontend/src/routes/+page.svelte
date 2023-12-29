@@ -10,7 +10,7 @@
 
         <hr>
 
-        <img class="iserv-logo" src="../../../static/img/ISERV.svg" alt="IServ-Logo">
+        <img class="iserv-logo" src="img/ISERV.svg" alt="IServ-Logo">
 
         <a class="btn-style1" href="/iservlogin">Daten über IServ importieren</a>
     </form>
