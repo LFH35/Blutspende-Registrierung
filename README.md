@@ -4,7 +4,7 @@ Simple register service for Blood Donations
 ## How to start
 ### Frontend
 cd frontend
-    mpm install
+    npm install
     npm install @sveltejs/adapter-cloudflare
     npm install -D sass
     npm run dev
