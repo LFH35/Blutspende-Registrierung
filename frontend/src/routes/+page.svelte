@@ -23,7 +23,9 @@
         
         // #TODO Login Logik hier
 
-        goto('/question'); //Nutzung des Svelte-Kit Navigators
+        const id = 1553; // #TODO Nutzer id hier zurückgeben!
+
+        goto('/' + id + '/question'); //Nutzung des Svelte-Kit Navigators
     }
 </script>
 
