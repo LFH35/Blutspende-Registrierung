@@ -2,6 +2,10 @@
     @import 'style.scss';
 </style>
 
+<svelte:head>
+	<title>Blutspende | UNDEFINED</title> <!--#TODO -->
+</svelte:head>
+
 <form method="POST" action="/checkdonator">
     <div class="card">
         <b>Sind Sie im Alter zwischen 18 und 60 Jahre?</b>
