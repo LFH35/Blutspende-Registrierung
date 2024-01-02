@@ -6,15 +6,33 @@
 	<title>Blutspende | Login</title>
 </svelte:head>
 
+<script>
+    import { goto } from '$app/navigation';
+
+    function login(event) {
+        event.preventDefault(); // Verhindert das Standardverhalten des Formulars
+
+        const nameInput = event.target.querySelector("#input-name");
+        const mailInput = event.target.querySelector("#input-mail");
+
+        const name = nameInput.value;
+        const mail = mailInput.value;
+        
+        // #TODO Login Logik hier
+
+        goto('/question'); //Nutzung des Svelte-Kit Navigators
+    }
+</script>
+
 <div class="box">
-    <form class="login-form" method="POST" action="https://127.0.0.1:5000/login">
+    <form class="login-form" on:submit|preventDefault="{login}" method="POST" action="https://127.0.0.1:5000/login">
         <h1>Registierung</h1>
 
-        <input class="input-style1" type="text" name="name" placeholder="Maximilian Mustermann">
+        <input class="input-style1" id="input-name" type="text" name="name" placeholder="Maximilian Mustermann" required>
 
-        <input class="input-style1" type="email" name="email" placeholder="max.mustermann@tls-giessen.eu">
+        <input class="input-style1" id="input-mail" type="email" name="email" placeholder="max.mustermann@tls-giessen.eu" required>
 
-        <button class="login-btn btn-style1">Fortfahren</button>
+        <button class="login-btn btn-style1" type="submit">Fortfahren</button>
 
         <hr>
 
