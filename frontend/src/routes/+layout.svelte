@@ -4,6 +4,7 @@
 
 <svelte:head>
 	<title>Blutspende</title>
+    <!--TODO<link rel="shortcut icon" href="favicon.png" type="image/x-icon">-->
 </svelte:head>
 
 <body>
