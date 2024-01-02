@@ -17,6 +17,9 @@
 
         const name = nameInput.value;
         const mail = mailInput.value;
+
+        console.log(name);
+        console.log(mail);
         
         // #TODO Login Logik hier
 
