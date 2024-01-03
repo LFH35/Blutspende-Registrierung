@@ -4,18 +4,10 @@ import json
 import requests
 
 # Third-party libraries
-from flask import Flask, redirect, request, url_for, render_template
-from flask_login import (
-    LoginManager,
-    current_user,
-    login_required,
-    login_user,
-    logout_user,
-)
+from flask import Flask, redirect, request, render_template
 from oauthlib.oauth2 import WebApplicationClient
 from dotenv import load_dotenv
 
-import utils
 # Internal imports
 from doner import Doner
 from appointment import Appointment
@@ -33,24 +25,14 @@ TEMPLATES_AUTO_RELOAD = True
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY") or os.urandom(24)
 
-# User session management setup
-login_manager = LoginManager()
-login_manager.init_app(app)
-
 # OAuth client setup
 client = WebApplicationClient(ISERV_CLIENT_ID)
 
 
 # Index route which is the first route the users see
-@app.route("/")
+@app.route("/", methods=['POST'])
 def index():
-    # user logged in
-    if current_user.is_authenticated:
-        return redirect(url_for("questions"))
-
-    # user not logged in
-    else:
-        return render_template("login.html")
+    return 200
 
 
 @app.route('/login', methods=['POST'])
@@ -71,7 +53,7 @@ def login():
         Doner.create(unique_id, users_name, users_email)
 
     # Send user back to homepage
-    return redirect(request.base_url + "/question")
+    return unique_id
 
 
 @app.route("/iservlogin")
