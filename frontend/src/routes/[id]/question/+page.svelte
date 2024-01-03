@@ -3,73 +3,43 @@
 </style>
 
 <svelte:head>
-	<title>Blutspende | UNDEFINED</title> <!--#TODO -->
+	<title>Blutspende | UNDEFINED</title> <!--#TODO Titel hinzufügen-->
 </svelte:head>
 
-<form method="POST" action="/checkdonator">
+<form>
     <div class="card">
         <b>Sind Sie im Alter zwischen 18 und 60 Jahre?</b>
         <div class="answer">
-            <label class="custom-checkbox">
-                <input type="checkbox" id="option1" name="adult" onchange="toggleCheck(this); checkButtons()" class="checkbox-ja">
-                <span class="checkbox">JA</span>
-            </label>
-        
-            <label class="custom-checkbox">
-                <input type="checkbox" id="option2" name="group2" onchange="toggleCheck(this); checkButtons()" class="checkbox-nein">
-                <span class="checkbox">NEIN</span>
-            </label>
+            <button class="btn-ja">JA</button> <br>
+            <button class="btn-nein">NEIN</button>
         </div>
     </div>
 
     <div class="card">
         <b>Wiegen Sie über 50kg?</b>
         <div class="answer">
-            <label class="custom-checkbox">
-                <input type="checkbox" id="option1" name="weight" onchange="toggleCheck(this); checkButtons()" class="checkbox-ja">
-                <span class="checkbox">JA</span>
-            </label>
-        
-            <label class="custom-checkbox">
-                <input type="checkbox" id="option2" name="group3" onchange="toggleCheck(this); checkButtons()" class="checkbox-nein">
-                <span class="checkbox">NEIN</span>
-            </label>
+            <button class="btn-ja">JA</button> <br>
+            <button class="btn-nein">NEIN</button>
         </div>
     </div>
 
     <div class="card">
         <b>Fühlen Sie sich gesund?</b>
         <div class="answer">
-            <label class="custom-checkbox">
-                <input type="checkbox" id="option1" name="healthy" onchange="toggleCheck(this); checkButtons()" class="checkbox-ja">
-                <span class="checkbox">JA</span>
-            </label>
-        
-            <label class="custom-checkbox">
-                <input type="checkbox" id="option2" name="group4" onchange="toggleCheck(this); checkButtons()" class="checkbox-nein">
-                <span class="checkbox">NEIN</span>
-            </label>
+            <button class="btn-ja">JA</button> <br>
+            <button class="btn-nein">NEIN</button>
         </div>
     </div>
 
     <div class="card">
         <b>Wurde Ihnen in den letzten vier Monaten Tattoos, Piercings oder Ohrringe gestochen?</b>
         <div class="answer">
-            <label class="custom-checkbox">
-                <input type="checkbox" id="option1" name="tattoos" onchange="toggleCheck(this); checkButtons()" class="checkbox-ja">
-                <span class="checkbox">JA</span>
-            </label>
-        
-            <label class="custom-checkbox">
-                <input type="checkbox" id="option2" name="group5" onchange="toggleCheck(this); checkButtons()" class="checkbox-nein">
-                <span class="checkbox">NEIN</span>
-            </label>
+            <button class="btn-ja">JA</button> <br>
+            <button class="btn-nein">NEIN</button>
         </div>
     </div>
-    <button id="weiterbtn" class="btn-style1 weiterbtn" type="submit">Weiter</button>
 
-    <p>Denken Sie bitte an Ihren gültigen Personalausweis oder einen gültigen Reisepass! <br>
-        Vergessen Sie nicht vor und nach der Blutspende außreichend zu trinken!</p>
+    <p id="hinweisText"></p>
 </form>
 
 <!-- #TODO if ist bereits Svelte, python verknüpfung fehlt
@@ -78,45 +48,24 @@
 {/if}-->
 
 <script>
-    // #TODO script not working
-    function toggleCheck(checkbox) {
-    // Suchen Sie das übergeordnete <div> des geänderten Kontrollkästchens
-    let parentDiv = checkbox.closest('.card');
+    document.addEventListener("DOMContentLoaded", function() {
+        var questions = document.querySelectorAll('.card');
+        var index = 0;
+        var solution = "";
 
-    // Durchlaufen Sie die Checkboxen innerhalb des übergeordneten <div>
-    let checkboxes = parentDiv.querySelectorAll('input[type="checkbox"]');
-    for (const element of checkboxes) {
-        if (element !== checkbox) {
-            element.checked = false; // Anderes Kontrollkästchen abwählen
+        questions[index].style.display = 'block';
+    });
+
+    function nextQuestion(answer) {
+        solution += answer; 
+
+        questions[index].style.display = 'none';
+
+        if (index < questions.length - 1) {
+            index++; // Gehe zur nächsten Frage
+            questions[index].style.display = 'block'; // Zeige die nächste Frage an
+        } else {
+            document.getElementById('hinweisText').innerHTML = 'Denken Sie bitte an Ihren gültigen Personalausweis oder einen gültigen Reisepass! Vergessen Sie nicht vor und nach der Blutspende außreichend zu trinken!';
         }
     }
-}
-
-function checkButtons() {
-    let cards = document.querySelectorAll('.card');
-    let button = document.getElementById('weiterbtn');
-    let allCardsHaveCheckboxChecked = true;
-
-    // Überprüfen, ob in jedem .card-Div mindestens eine Checkbox ausgewählt ist
-    for (const element of cards) {
-        let checkboxes = element.querySelectorAll('input[type="checkbox"]');
-        let atLeastOneChecked = false;
-
-        // Überprüfen, ob mindestens eine Checkbox in diesem .card-Div ausgewählt ist
-        for (let j of checkboxes.length) {
-            if (checkboxes[j].checked) {
-                atLeastOneChecked = true;
-                break; // Wenn mindestens eine Checkbox ausgewählt ist, abbrechen
-            }
-        }
-
-        if (!atLeastOneChecked) {
-            allCardsHaveCheckboxChecked = false;
-            break; // Wenn mindestens ein .card-Div keine ausgewählte Checkbox hat, abbrechen
-        }
-    }
-
-    // Button aktivieren oder deaktivieren und Design ändern
-    button.disabled = !allCardsHaveCheckboxChecked;
-}
 </script>

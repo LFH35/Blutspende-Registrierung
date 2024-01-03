@@ -26,6 +26,13 @@ body {
     justify-content: center;
     align-items: center;
 
+    .favicon {
+        position: absolute;
+        left: 25px;
+        top: 25px;
+        width: 150px;
+    }
+
     .Blood-LeftBottom {
         position: absolute;
         left: 0;
