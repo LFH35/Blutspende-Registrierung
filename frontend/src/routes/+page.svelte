@@ -9,7 +9,7 @@
 <script>
     import { goto } from '$app/navigation';
 
-    function login(event) {
+    async function login(event) {
         event.preventDefault(); // Verhindert das Standardverhalten des Formulars
 
         const nameInput = event.target.querySelector("#input-name");
@@ -18,12 +18,30 @@
         const name = nameInput.value;
         const mail = mailInput.value;
 
+        const data = {
+            name: name,
+            mail: mail
+        }
+
         console.log(name);
         console.log(mail);
         
         // #TODO Login Logik hier
 
-        const id = 1553; // #TODO Nutzer id hier zurückgeben!
+        // const id = await fetch("http://0.0.0.0:5000/login", {
+        //     method: "POST",
+        //     mode: "cors",
+        //     cache: "no-cache",
+        //     credentials: "same-origin",
+        //     headers: {
+        //       "Content-Type": "application/json",
+        //     },
+        //     redirect: "follow",
+        //     referrerPolicy: "no-referrer",
+        //     body: JSON.stringify(data),
+        // }); //
+
+        const id = 5173;
 
         goto('/' + id + '/question'); //Nutzung des Svelte-Kit Navigators
     }
