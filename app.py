@@ -114,48 +114,13 @@ def callback():
 
 @app.route("/logout")
 def logout():
-    return redirect(request.base_url)
-
-
-@app.route("/questions")
-def questions():
-    if current_user.is_authenticated:
-        return render_template("questions.html", current_user=current_user)
-
-    else:
-        return redirect(url_for("index"))
-
-
-@app.route("/checkdonator", methods=['GET', 'POST'])
-def checkdonator():
-    if current_user.is_authenticated:
-        adult: bool = bool(request.form.get('adult'))
-        weight: bool = bool(request.form.get('weight'))
-        healthy: bool = bool(request.form.get('healthy'))
-        tattoos: bool = not bool(request.form.get('tattoos'))
-
-        # checks if the blood is donatable
-        values = [adult, weight, healthy, tattoos]
-        not_donatable = []
-
-        for value in values:
-            if not value:
-                not_donatable.append(value)
-
-        if not_donatable:
-            return redirect(request.base_url + "/not_donatable")
-
-        else:
-            return redirect(url_for("appointments"))
-
-    else:
-        return redirect(url_for("index"))
+    return redirect(os.getenv("FRONTENT_DOMAIN") + "/login")
 
 
 @app.route("/appointments")
 def appointments():
     if current_user.is_authenticated:
-        # REMOVE WHEN ADMIN PANEL IS ACTIVE
+        # TODO REMOVE WHEN ADMIN PANEL IS ACTIVE
         Appointment.add_appointment("18-09-2023")
         return render_template("appointments.html",
                                appointments=Appointment.get_appointment("18-09-2023"),

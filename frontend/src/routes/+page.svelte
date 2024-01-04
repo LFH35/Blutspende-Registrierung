@@ -8,7 +8,6 @@
 
 <script>
     process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0"; // TODO DELETE THIS LINE IF YOU GO IN PRODUCTION USE!!!
-    import { goto } from '$app/navigation';
 
     async function login(event) {
         event.preventDefault(); // prevent the default behave of the form
@@ -24,9 +23,9 @@
             email: mail
         };
 
-        // #TODO finish the Login here
+        // TODO finish the Login here
 
-        const id = await fetch("https://localhost:5000/login", {
+        await fetch("https://localhost:5000/login", {
             method: "POST",
             mode: "no-cors",
             cache: "no-cache",
