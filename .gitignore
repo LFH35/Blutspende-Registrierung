@@ -11,3 +11,5 @@ vite.config.ts.timestamp-*
 venv
 .idea
 frontend/cert/*
+__pycache__
+test.db
