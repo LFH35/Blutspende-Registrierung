@@ -24,7 +24,6 @@
             font-size: large;
             border-radius: 10px;
             font-weight: bold;
-            transition: background-color 0.5s ease;
         }
 
         .btn-ja {
@@ -44,8 +43,34 @@
         width: 200px;
     }
 
-    #terminBuchen {
+    #donatable {
+        height: 50%;
         visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        .btn-donatable {
+            user-select: none;
+            border: 4px solid var(--main-green-color);
+            width: 250px;
+            height: 75px;
+            font-size: large;
+            border-radius: 10px;
+            font-weight: bold;
+            background-color: var(--main-light-green-color);
+            color: var(--main-green-color);
+        }
+    }
+
+    .notDonatable {
+        height: 100%;
+        text-align: center;
+
+        #donatable {
+            height: 0;
+        }
     }
 }
 
