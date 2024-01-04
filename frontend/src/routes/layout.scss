@@ -15,6 +15,7 @@
     --main-grey-color: #595959;
     --main-light-green-color: #94BF36;
     --main-green-color: #375915;
+    --main-orange-color: #F28705;
 }
 
 body {
@@ -30,6 +31,10 @@ body {
         position: absolute;
         left: 0;
         bottom: 0;
+        user-select: none;
+        -webkit-user-drag: none;
+        -ms-user-select: none;
+        -moz-user-select: none;
     }
 
     main {
@@ -48,6 +53,10 @@ body {
         position: absolute;
         right: 0;
         top: 0;
+        user-select: none;
+        -webkit-user-drag: none;
+        -ms-user-select: none;
+        -moz-user-select: none;
     }
 }
 @media (max-width: 768px) {

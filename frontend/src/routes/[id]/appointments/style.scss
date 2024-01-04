@@ -11,19 +11,12 @@
 .appointment {
     text-decoration: none;
     border: none;
-    border-radius: 5px;
-    //background-color: var(--main-grey-color);
-    //color: var(--main-white-color);
+    border-radius: 10px;
+    color: var(--main-white-color);
     padding: 15px 25px;
     font-size: medium;
     font-weight: bold;
     transition: background-color 0.5s ease;
-}
-
-.appointment:hover {
-    background-color: var(--main-light-green-color);
-    color: var(--main-green-color);
-    border-color: var(--main-green-color);
 }
 
 .freiePlaetze0 {
@@ -37,7 +30,7 @@
 }
 
 .freiePlaetze2, .freiePlaetze3{
-    background-color: #de9924;
+    background-color: var(--main-orange-color);
 }
 
 .freiePlaetze4 {
