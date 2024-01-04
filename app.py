@@ -103,17 +103,12 @@ def callback():
     users_email = userinfo_response.json()["email"]
     users_name = userinfo_response.json()["name"]
 
-    # Create a user in your db with the information provided
-    user = Doner(
-        id_=unique_id, name=users_name, email=users_email
-    )
-
     # User doesn't exist? Add it to the database.
     if not Doner.get(unique_id):
         Doner.create(unique_id, users_name, users_email)
 
     # Send user back to homepage
-    return redirect(request.url + "/question")
+    return redirect(os.getenv("FRONTENT_DOMAIN") + unique_id + "/question")
 
 
 @app.route("/logout")
@@ -145,9 +140,6 @@ def checkdonator():
         for value in values:
             if not value:
                 not_donatable.append(value)
-
-            else:
-                pass
 
         if not_donatable:
             return redirect(request.base_url + "/not_donatable")
@@ -221,4 +213,4 @@ def admin_doners():
         return render_template("admin_doner_overview.html", data=data, print=print)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, use_reloader=True, debug=True)
+    app.run(host="0.0.0.0", port=5000, use_reloader=True, debug=True, ssl_context="adhoc")

@@ -25,7 +25,7 @@
         
         // #TODO finish the Login here
 
-        const id = await fetch("http://0.0.0.0:5000/login", {
+        const id = await fetch("https://localhost:5000/login", {
             method: "POST",
             mode: "no-cors",
             cache: "no-cache",
@@ -35,7 +35,8 @@
             },
             body: JSON.stringify(data),
         }); //
-        console.log('ID', id)
+        console.log(id)
+        console.log('ID', id.text())
         await goto('/' + id + '/question'); // Take us of the Svelte Kit Navigator
     }
 </script>
@@ -54,6 +55,6 @@
 
         <img class="iserv-logo" src="img/ISERV.svg" alt="IServ-Logo">
 
-        <a class="btn-style1" href="http://0.0.0.0:5000/iservlogin">Daten über IServ importieren</a>
+        <a class="btn-style1" href="https://127.0.0.1:5000/iservlogin">Daten über IServ importieren</a>
     </form>
 </div>
