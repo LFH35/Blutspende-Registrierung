@@ -7,7 +7,6 @@
 </svelte:head>
 
 <body>
-    <img src="../favicon.png" alt="Bluttropfen mit Checkliste in der Hand." class="favicon">
     <img src="../img/Blood-LeftBottom.svg" alt="Bloot Left Bottom" class="Blood-LeftBottom">
     <main>
         <slot />

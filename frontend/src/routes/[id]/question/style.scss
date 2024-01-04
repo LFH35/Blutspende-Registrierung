@@ -1,29 +1,47 @@
 .card {
+    height: 100%;
     display: none;
-    
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 
-
-    button {
-        user-select: none;
-        border: 4px solid var(--main-light-grey-color);
-        background-color: var(--main-light-grey-color);
-        color: var(--main-grey-color);
-        padding: 10px 20px;
-        border-radius: 15px;
-        font-weight: bold;
-        transition: background-color 0.5s ease;
+    h2 {
+        margin: 25px;
+        text-align: center;
     }
     
-    .btn-ja {
-        background-color: var(--main-light-green-color);
-        color: var(--main-green-color);
-        border-color: var(--main-green-color);
+    .btns {
+        height: 25%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        button {
+            user-select: none;
+            border: 4px solid var(--main-light-grey-color);
+            width: 150px;
+            height: 50px;
+            font-size: large;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: background-color 0.5s ease;
+        }
+
+        .btn-ja {
+            background-color: var(--main-light-green-color);
+            color: var(--main-green-color);
+            border-color: var(--main-green-color);
+        }
+
+        .btn-nein {
+            background-color: var(--main-bloody-red-color);
+            color: var(--main-dark-red-color);
+            border-color: var(--main-dark-red-color);
+        }
     }
-    
-    .btn-nein {
-        background-color: var(--main-bloody-red-color);
-        color: var(--main-dark-red-color);
-        border-color: var(--main-dark-red-color);
+
+    img {
+        width: 200px;
     }
 
     #terminBuchen {
