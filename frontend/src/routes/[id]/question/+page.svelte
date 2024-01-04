@@ -3,7 +3,7 @@
 </style>
 
 <svelte:head>
-	<title>Blutspende | UNDEFINED</title> <!--#TODO Titel hinzufügen-->
+	<title>Blutspende | Fragebogen</title>
 </svelte:head>
 
 <form>
@@ -38,7 +38,6 @@
             <button class="btn-nein" on:click={() => nextQuestion('0')}>NEIN</button>
         </div>
     </div>
-
     <p id="hinweisText"></p>
 </form>
 
@@ -55,12 +54,12 @@
     let index = 0;
 
     onMount( () => {
-    questions = document.querySelectorAll('.card');
+        questions = document.querySelectorAll('.card');
 
-    questions[index].style.display = 'block'; 
-});
+        questions[index].style.display = 'block';
+    });
 
-function nextQuestion(answer) {
+    function nextQuestion(answer) {
         solution += answer;
 
         questions[index].style.display = 'none';

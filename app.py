@@ -4,7 +4,7 @@ import json
 import requests
 
 # Third-party libraries
-from flask import Flask, redirect, request, render_template
+from flask import Flask, redirect, request, render_template, jsonify
 from oauthlib.oauth2 import WebApplicationClient
 from dotenv import load_dotenv
 
@@ -37,23 +37,21 @@ def index():
 
 @app.route('/login', methods=['POST'])
 def login():
-    users_name = request.form["name"]
-    users_email = request.form["email"]
+    data = json.loads(request.get_data().decode())
+    print(data)
+    users_name = data["name"]
+    users_email = data["email"]
     unique_id = check_doner(users_email)
     if not unique_id:
         unique_id = new_uid()
-
-    # Create a user in your db with the information provided
-    user = Doner(
-        id_=unique_id, name=users_name, email=users_email
-    )
 
     # Add User to the database
     if not Doner.get(unique_id):
         Doner.create(unique_id, users_name, users_email)
 
-    # Send user back to homepage
-    return unique_id
+    # Send the UserID to the frontend
+    print(unique_id)
+    return jsonify(unique_id)
 
 
 @app.route("/iservlogin")
@@ -66,7 +64,7 @@ def iservlogin():
     # retrieve user's profile from iserv
     return redirect(client.prepare_request_uri(
         authorization_endpoint,
-        redirect_uri=request.base_url + "/callback",
+        redirect_uri=os.getenv("API_DOMAIN") + "/iservlogin/callback",
         scope=["openid", "email", "profile"],
     ))
 
@@ -223,4 +221,4 @@ def admin_doners():
         return render_template("admin_doner_overview.html", data=data, print=print)
 
 if __name__ == "__main__":
-    app.run(ssl_context="adhoc", port=5000, use_reloader=True)
+    app.run(host="0.0.0.0", port=5000, use_reloader=True, debug=True)

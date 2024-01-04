@@ -10,7 +10,7 @@
     import { goto } from '$app/navigation';
 
     async function login(event) {
-        event.preventDefault(); // Verhindert das Standardverhalten des Formulars
+        event.preventDefault(); // prevent the default behave of the form
 
         const nameInput = event.target.querySelector("#input-name");
         const mailInput = event.target.querySelector("#input-mail");
@@ -20,30 +20,23 @@
 
         const data = {
             name: name,
-            mail: mail
+            email: mail
         }
-
-        console.log(name);
-        console.log(mail);
         
-        // #TODO Login Logik hier
+        // #TODO finish the Login here
 
-        // const id = await fetch("http://0.0.0.0:5000/login", {
-        //     method: "POST",
-        //     mode: "cors",
-        //     cache: "no-cache",
-        //     credentials: "same-origin",
-        //     headers: {
-        //       "Content-Type": "application/json",
-        //     },
-        //     redirect: "follow",
-        //     referrerPolicy: "no-referrer",
-        //     body: JSON.stringify(data),
-        // }); //
-
-        const id = 5173;
-
-        goto('/' + id + '/question'); //Nutzung des Svelte-Kit Navigators
+        const id = await fetch("http://0.0.0.0:5000/login", {
+            method: "POST",
+            mode: "no-cors",
+            cache: "no-cache",
+            credentials: "same-origin",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        }); //
+        console.log('ID', id)
+        await goto('/' + id + '/question'); // Take us of the Svelte Kit Navigator
     }
 </script>
 
@@ -61,6 +54,6 @@
 
         <img class="iserv-logo" src="img/ISERV.svg" alt="IServ-Logo">
 
-        <a class="btn-style1" href="https://127.0.0.1:5000/iservlogin">Daten über IServ importieren</a>
+        <a class="btn-style1" href="http://0.0.0.0:5000/iservlogin">Daten über IServ importieren</a>
     </form>
 </div>
