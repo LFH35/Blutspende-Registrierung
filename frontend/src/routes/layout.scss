@@ -20,8 +20,12 @@
 
 body {
     margin: auto;
-    width: 100vw;
-    height: 100vh;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow-y: scroll;
     background-color: var(--main-background-color);
     display: flex;
     justify-content: center;
@@ -59,19 +63,18 @@ body {
         -moz-user-select: none;
     }
 }
+
 @media (max-width: 768px) {
     body {
         background-color: var(--main-white-color);
     
         main {
-            width: 100vw;
-            height: 100vh;
             margin: auto;
             border-radius: 0;
         }
     }
 
     .Blood-LeftBottom, .Blood-RightTop {
-        visibility: hidden;
+        display: none;
     }
 }
