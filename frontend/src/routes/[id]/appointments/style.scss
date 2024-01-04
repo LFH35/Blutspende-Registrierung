@@ -1,28 +1,39 @@
 .appointments {
-    z-index: 10;
-    background-color: var(--main-white-color);
     display: grid;
-    grid-template-columns: auto auto auto auto;
-    gap: 15px;
+    grid-template-columns: auto auto auto;
+    gap: 20px;
     flex-direction: column;
     align-items: center;
     color: var(--main-bloody-red-color);
-    height: 700px;
     border-radius: 25px;
 }
 
-a {
+.appointment {
     text-decoration: none;
-    border: 4px solid var(--main-dark-blue-color);
-    background-color: var(--main-light-blue-color);
-    color: var(--main-dark-blue-color);
-    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--main-grey-color);
+    color: var(--main-white-color);
+    padding: 15px 25px;
+    font-size: medium;
     font-weight: bold;
     transition: background-color 0.5s ease;
 }
 
-a:hover {
+.appointment:hover {
     background-color: var(--main-light-green-color);
     color: var(--main-green-color);
     border-color: var(--main-green-color);
+}
+
+.freiePlaetze1 {
+    background-color: var(--main-bloody-red-color);
+}
+
+.freiePlaetze2, .freiePlaetze3{
+    background-color: orange;
+}
+
+.freiePlaetze4 {
+    background-color: var(--main-green-color);
 }
