@@ -1,5 +1,5 @@
 <h1>Welchen Termin hätten sie gern?</h1>
-<div class="appointment">
+<div class="appointments">
     <!-- #TODO Schleife ist nicht korrekt in Svelte geschrieben, verknüpfung zu Python fehlt
         {#each appointments as appointment, index}
         <a href="/set_appointment?time={{i.time }}">{{ i.time[:2] }}:{{ i.time[2:] }} 
