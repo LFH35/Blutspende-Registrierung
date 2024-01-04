@@ -26,8 +26,7 @@
     border-color: var(--main-green-color);
 }
 
-button:disabled,
-button[disabled]{
+.freiePlaetze0 {
     text-decoration: line-through;
     background-color: var(--main-grey-color);
     color: var(--main-white-color);
