@@ -94,7 +94,11 @@
     }
 
     function nextPage() {
-
+        let thisPage = window.location.pathname;
+        let splitted = thisPage.split('/');
+        const id = splitted[1];
+        console.log("ID: " + id);
+        goto('/' + id + '/appointments');
     }
 
     function reloadPage() {
