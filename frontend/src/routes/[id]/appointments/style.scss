@@ -4,35 +4,45 @@
     gap: 20px;
     flex-direction: column;
     align-items: center;
-    color: var(--main-bloody-red-color);
+    color: $bloody-red;
     border-radius: 25px;
 }
 
 .appointment {
     text-decoration: none;
-    border: none;
+    border: 4px solid;
     border-radius: 10px;
-    color: var(--main-white-color);
-    padding: 15px 25px;
+    color: $white;
+    padding: 13px 23px;
     font-size: medium;
     font-weight: bold;
     transition: background-color 0.5s ease;
+    cursor: pointer;
 }
 
 .freiePlaetze0 {
     text-decoration: line-through;
-    background-color: var(--main-grey-color);
-    color: var(--main-white-color);
+    background-color: $grey;
+    border-color: $grey;
+    color: $white;
+    cursor: auto;
 }
 
 .freiePlaetze1 {
-    background-color: var(--main-bloody-red-color);
+    background-color: $bloody-red;
+    border-color: $bloody-red;
+
+    &:hover {
+        border-color: $dark-red;
+    }
 }
 
 .freiePlaetze2, .freiePlaetze3{
-    background-color: var(--main-orange-color);
+    background-color: $orange;
+    border-color: $orange;
 }
 
 .freiePlaetze4 {
-    background-color: var(--main-green-color);
+    background-color: $green;
+    border-color: $green;
 }

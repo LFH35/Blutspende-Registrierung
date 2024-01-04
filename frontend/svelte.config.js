@@ -1,4 +1,5 @@
 import adapter from '@sveltejs/adapter-cloudflare';
+import preprocess from 'svelte-preprocess';
 
 export default {
 	kit: {
@@ -9,5 +10,10 @@ export default {
 				exclude: ['<all>']
 			}
 		})
-	}
+	},
+	preprocess: preprocess({
+		scss: {
+			prependData: `@import './src/routes/global.scss';`
+		}
+	})
 };

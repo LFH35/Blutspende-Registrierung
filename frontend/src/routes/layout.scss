@@ -4,18 +4,6 @@
     margin: 0;
     padding: 0;
     font-family: 'Ubuntu', sans-serif;
-    --main-background-color: #D97E7E;
-    --main-bloody-red-color: #9a1d1d;
-    --main-dark-red-color: #590202;
-    --main-light-blue-color: #3DE0F2;
-    --main-blue-color: #0CB1F2;
-    --main-dark-blue-color: #0B508C;
-    --main-white-color: white;
-    --main-light-grey-color: #737373;
-    --main-grey-color: #595959;
-    --main-light-green-color: #94BF36;
-    --main-green-color: #375915;
-    --main-orange-color: #F28705;
 }
 
 body {
@@ -26,7 +14,7 @@ body {
     top: 0;
     bottom: 0;
     overflow-y: scroll;
-    background-color: var(--main-background-color);
+    background-color: $background-color;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,11 +31,11 @@ body {
 
     main {
         z-index: 10;
-        background-color: var(--main-white-color);
+        background-color: $white;
         display: flex;
         flex-direction: column;
         align-items: center;
-        color: var(--main-bloody-red-color);
+        color: $bloody-red;
         width: 375px;
         height: 700px;
         border-radius: 25px;
@@ -66,7 +54,7 @@ body {
 
 @media (max-width: 768px) {
     body {
-        background-color: var(--main-white-color);
+        background-color: $white;
     
         main {
             margin: auto;
