@@ -7,6 +7,7 @@
 </svelte:head>
 
 <script>
+    process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0"; // TODO DELETE THIS LINE IF YOU GO IN PRODUCTION USE!!!
     import { goto } from '$app/navigation';
 
     async function login(event) {
@@ -18,11 +19,11 @@
         const name = nameInput.value;
         const mail = mailInput.value;
 
-        const data = {
+        let data = {
             name: name,
             email: mail
-        }
-        
+        };
+
         // #TODO finish the Login here
 
         const id = await fetch("https://localhost:5000/login", {
@@ -30,14 +31,12 @@
             mode: "no-cors",
             cache: "no-cache",
             credentials: "same-origin",
-            headers: {
-              "Content-Type": "application/json",
-            },
+            headers: new Headers({
+                "content-type": "application/json",
+            }),
             body: JSON.stringify(data),
-        }); //
-        console.log(id)
-        console.log('ID', id.text())
-        await goto('/' + id + '/question'); // Take us of the Svelte Kit Navigator
+        })
+        // No Navigator needed, because the API redirects you to the questions page
     }
 </script>
 

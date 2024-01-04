@@ -12,8 +12,8 @@
     text-decoration: none;
     border: none;
     border-radius: 5px;
-    background-color: var(--main-grey-color);
-    color: var(--main-white-color);
+    //background-color: var(--main-grey-color);
+    //color: var(--main-white-color);
     padding: 15px 25px;
     font-size: medium;
     font-weight: bold;
@@ -26,12 +26,19 @@
     border-color: var(--main-green-color);
 }
 
+button:disabled,
+button[disabled]{
+    text-decoration: line-through;
+    background-color: var(--main-grey-color);
+    color: var(--main-white-color);
+}
+
 .freiePlaetze1 {
     background-color: var(--main-bloody-red-color);
 }
 
 .freiePlaetze2, .freiePlaetze3{
-    background-color: orange;
+    background-color: #de9924;
 }
 
 .freiePlaetze4 {
