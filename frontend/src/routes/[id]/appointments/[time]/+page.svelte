@@ -1,12 +1,11 @@
-<style>
+<style lang="scss">
     @import 'style.scss';
 </style>
 
-<h2>Buchung Bestätigen</h2>
-
 <div class="content">
+    <h2>Buchung Bestätigen</h2>
     <p>Sind sie sicher das sie den Termin um <b>{time}Uhr</b> buchen möchten? <br> <br> Aktuell sind noch <b>{freeSlots} Plätze</b> frei.</p>
-    <button on:click={() => terminBuchen()}>Termin Buchen</button>
+    <button class="buchungBestaetigen" on:click={() => terminBuchen()}>Termin Buchen</button>
     <img src="../../favicon.png" alt="Bluttropfen mit Checkliste">
 </div>
 
