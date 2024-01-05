@@ -14,9 +14,15 @@ npm run dev
 ```
 
 ## API
+### Linux
 ```shell
 pip install -r requirements.txt
 gunicorn --keyfile ./frontend/cert/key.pem --certfile ./frontend/cert/cert.pem -b 127.0.0.1:5000 app:app
+```
+
+### Windows (Only for testing use. Do NOT use this in production!)
+```shell
+python3 app.py
 ```
 
 ## For local testing
