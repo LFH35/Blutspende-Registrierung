@@ -1,7 +1,7 @@
 .appointments {
     display: grid;
     grid-template-columns: auto auto auto;
-    gap: 20px;
+    gap: 15px;
     flex-direction: column;
     align-items: center;
     color: $bloody-red;
@@ -42,7 +42,7 @@
     border-color: $orange;
 
     &:hover {
-        border-color: white; //TODO
+        border-color: $dark-orange;
     }
 }
 
@@ -51,6 +51,37 @@
     border-color: $green;
 
     &:hover {
-        border-color: white; //TODO
+        border-color: $dark-green;
     }
 }
+
+.legend {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0 15px;
+
+    .dot {
+        padding: 10px 25px;
+        display: inline-block;  
+        color: $white;
+        border-radius: 10px;
+    }
+
+    .dot-grey {
+        background-color: $grey;
+    }
+
+    .dot-red {
+        background-color: $bloody-red;
+    }
+
+    .dot-orange {
+        background-color: $orange;
+    }
+
+    .dot-green {
+        background-color: $green;
+    }
+}
+

@@ -17,6 +17,12 @@
         {/if}
     {/each}
 </div>
+<div class="legend">
+    <p class="dot dot-grey">Kein freier Platz</p>
+    <p class="dot dot-red">1 freier Platz</p>
+    <p class="dot dot-orange">2-3 freie Plätze</p>
+    <p class="dot dot-green">4 freie Plätze</p>
+</div>
 
 <script>
     // TODO Hardcoded durch irgendeinen python datenbank shit ersetzen, bitte formatierung einhalten!
