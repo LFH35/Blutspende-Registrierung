@@ -40,6 +40,10 @@
         }
     }
 
+    &:last-child {
+        text-align: center;
+    }
+
     img {
         width: 200px;
         -webkit-user-select: none;
