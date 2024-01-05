@@ -1,5 +1,5 @@
 # Blutspende-Registrierung
-Simple register service for Blood Donations.
+Simple register service for blood donations.
 
 # How to start
 ## Frontend
@@ -16,7 +16,7 @@ npm run dev
 ## API
 ```shell
 pip install -r requirements.txt
-gunicorn --bind 0.0.0.0:5000 app:app
+gunicorn --keyfile ./frontend/cert/key.pem --certfile ./frontend/cert/cert.pem -b 127.0.0.1:5000 app:app
 ```
 
 ## For local testing
@@ -31,4 +31,3 @@ mkcert -install
 cd frontend/cert
 mkcert -key-file key.pem -cert-file cert.pem localhost
 ```
-
