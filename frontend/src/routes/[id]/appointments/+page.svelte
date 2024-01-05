@@ -27,6 +27,8 @@
 <script>
     // TODO Hardcoded durch irgendeinen python datenbank shit ersetzen, bitte formatierung einhalten!
 
+    import { goto } from '$app/navigation';
+
     let defaultSlots = 4;
     let slot1 = ['10:00', defaultSlots];
     let slot2 = ['10:15', 2];
@@ -54,6 +56,7 @@
         slot15, slot16, slot17, slot18, slot19, slot20, slot21];
 
     function showSlot(slot) {
-        // TODO slot darstellen
+        let thisPage = window.location.pathname;
+        goto(thisPage + '/' + slot[0] + '+' + slot[1]);
     }
 </script>
