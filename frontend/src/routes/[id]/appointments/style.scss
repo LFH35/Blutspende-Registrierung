@@ -40,9 +40,17 @@
 .freiePlaetze2, .freiePlaetze3{
     background-color: $orange;
     border-color: $orange;
+
+    &:hover {
+        border-color: white; //TODO
+    }
 }
 
 .freiePlaetze4 {
     background-color: $green;
     border-color: $green;
+
+    &:hover {
+        border-color: white; //TODO
+    }
 }
