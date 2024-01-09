@@ -124,3 +124,6 @@ class Appointment:
 
         doner.appointment = True
         session.commit()
+
+if __name__ == "__main__":
+    app.run()

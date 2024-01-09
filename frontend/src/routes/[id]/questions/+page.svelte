@@ -89,9 +89,8 @@
 
     function nextPage() {
         let thisPage = window.location.pathname;
-        let splitted = thisPage.split('/');
-        const id = splitted[1];
-        console.log("ID: " + id);
+        thisPage = window.location.pathname.split('/');
+        const id = thisPage[0];
         goto('/' + id + '/appointments');
     }
 

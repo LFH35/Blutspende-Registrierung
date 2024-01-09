@@ -13,11 +13,11 @@
     import { onMount } from "svelte";
     import { goto } from '$app/navigation';
 
-        let thisPage = [];
-        let id;
-        let appointment= [];
-        let time;
-        let freeSlots;
+    let thisPage = [];
+    let id;
+    let appointment= [];
+    let time;
+    let freeSlots;
 
     onMount( () => {
         thisPage = window.location.pathname.split('/');

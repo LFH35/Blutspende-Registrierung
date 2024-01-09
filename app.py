@@ -39,7 +39,7 @@ def index():
 @app.route('/login', methods=['POST'])
 def login():
     print(request.base_url)
-    if request.base_url == "https://127.0.0.1:5000/login":  # TODO Change the IP Adress to the real address
+    if request.base_url == f"{os.getenv('API_DOMAIN')}/login":  # TODO Setup API Key Access
         # Formats the URL Encoded Form Data into JSON
         data = request.form.to_dict(urllib.parse.unquote(request.get_data().decode()))
         print(data)
@@ -120,15 +120,20 @@ def callback():
 
 @app.route("/appointments")
 def appointments():
-    if current_user.is_authenticated:
-        # TODO REMOVE WHEN ADMIN PANEL IS ACTIVE
-        Appointment.add_appointment("18-09-2023")
-        return render_template("appointments.html",
-                               appointments=Appointment.get_appointment("18-09-2023"),
-                               free_slots=Appointment.free_slots)
+    Appointment.add_appointment("18-09-2023")
+    date = "18-09-2023"
+    time = 1000
+    # TODO REMOVE WHEN ADMIN PANEL IS ACTIVE
+    slots = []
 
-    else:
-        return redirect(url_for("index"))
+    while time <= 1500:
+        slots.append([f"{str(time)[:2]}:{str(time)[2:]}", Appointment.free_slots(date, time)])
+        if str(time).endswith("45"):
+            time += 55
+        else:
+            time += 15
+
+    return slots
 
 
 @app.route("/set_appointment", methods=["GET", "POST"])

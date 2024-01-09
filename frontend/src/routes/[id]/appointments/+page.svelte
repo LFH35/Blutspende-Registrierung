@@ -26,36 +26,27 @@
 
 <script>
     // TODO Hardcoded durch irgendeinen python datenbank shit ersetzen, bitte formatierung einhalten!
-
     import { goto } from '$app/navigation';
+    import { onMount } from "svelte";
 
-    let defaultSlots = 4;
-    let slot1 = ['10:00', defaultSlots];
-    let slot2 = ['10:15', 2];
-    let slot3 = ['10:30', defaultSlots];
-    let slot4 = ['10:45', defaultSlots];
-    let slot5 = ['11:00', 0];
-    let slot6 = ['11:15', defaultSlots];
-    let slot7 = ['11:30', 3];
-    let slot8 = ['11:45', defaultSlots];
-    let slot9 = ['12:00', defaultSlots];
-    let slot10 = ['12:15', defaultSlots];
-    let slot11 = ['12:30', defaultSlots];
-    let slot12 = ['12:45', 1];
-    let slot13 = ['13:00', defaultSlots];
-    let slot14 = ['13:15', 1];
-    let slot15 = ['13:30', defaultSlots];
-    let slot16 = ['13:45', 2];
-    let slot17 = ['14:00', defaultSlots];
-    let slot18 = ['14:15', defaultSlots];
-    let slot19 = ['14:30', defaultSlots];
-    let slot20 = ['14:45', defaultSlots];
-    let slot21 = ['15:00', 0];
+    let slots = [];
 
-    let slots = [slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8, slot9, slot10, slot11, slot12, slot13, slot14,
-        slot15, slot16, slot17, slot18, slot19, slot20, slot21];
+    onMount( async () => {
+        const res = await fetch("https://localhost:5000/appointments", {
+            method: "GET",
+            mode: "no-cors",
+            cache: "no-cache",
+            credentials: "same-origin",
+            headers: new Headers({
+                "content-type": "application/json",
+            }),
+        });
+        slots = await res.json();
+    });
 
     function showSlot(slot) {
+        console.log(slots);
+        console.log(slot);
         let thisPage = window.location.pathname;
         goto(thisPage + '/' + slot[0] + '+' + slot[1]);
     }
