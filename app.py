@@ -38,23 +38,29 @@ def index():
 
 @app.route('/login', methods=['POST'])
 def login():
-    # Formats the URL Encoded Form Data into JSON
-    data = request.form.to_dict(urllib.parse.unquote(request.get_data().decode()))
+    print(request.base_url)
+    if request.base_url == "https://127.0.0.1:5000/login":  # TODO Change the IP Adress to the real address
+        # Formats the URL Encoded Form Data into JSON
+        data = request.form.to_dict(urllib.parse.unquote(request.get_data().decode()))
+        print(data)
+        users_name = data["name"][0]
+        users_email = data["email"][0]
+        unique_id = check_doner(users_email)
+        if not unique_id:
+            unique_id = new_uid()
 
-    users_name = data["name"][0]
-    users_email = data["email"][0]
-    unique_id = check_doner(users_email)
-    if not unique_id:
-        unique_id = new_uid()
+        # Add User to the database
+        if not Doner.get(unique_id):
+            Doner.create(unique_id, users_name, users_email)
 
-    # Add User to the database
-    if not Doner.get(unique_id):
-        Doner.create(unique_id, users_name, users_email)
+        # Send the UserID to the frontend
+        return redirect(os.getenv("FRONTENT_DOMAIN") + "/" + unique_id + "/questions")
 
-    # Send the UserID to the frontend
-    return redirect(os.getenv("FRONTENT_DOMAIN") + "/" + unique_id + "/questions")
+    else:
+        return redirect("https://giybf.com")
 
 
+# TODO Repair the IServ Login - NOTE: InvalidGrantError
 @app.route("/iservlogin")
 def iservlogin():
     # Find out what URL to hit for iserv login
@@ -110,11 +116,6 @@ def callback():
 
     # Send user back to homepage
     return redirect(os.getenv("FRONTENT_DOMAIN") + unique_id + "/questions")
-
-
-@app.route("/logout")
-def logout():
-    return redirect(os.getenv("FRONTENT_DOMAIN") + "/login")
 
 
 @app.route("/appointments")

@@ -27,10 +27,25 @@
         freeSlots = appointment[1];
     });
 
-    function terminBuchen() {
+    async function terminBuchen() {
         console.log(time);
         console.log(freeSlots);
 
+        let data = {
+            userid: id,
+            time: time,
+        }
+
+        await fetch("https://localhost:5000/login", {
+            method: "POST",
+            mode: "no-cors",
+            cache: "no-cache",
+            credentials: "same-origin",
+            headers: new Headers({
+                "content-type": "application/json",
+            }),
+            body: JSON.stringify(data),
+        })
         //#TODO termin mit id und time buchen
     }
 </script>
