@@ -72,11 +72,20 @@
         questions[index].style.display = 'none';
 
         if (solution.length === 4) {
-            if(solution === "1110") {
-                solution = "<h2>Denken Sie an Ihren gültigen Personalausweis oder einen gültigen Reisepass! Vergessen Sie nicht vor und nach der Blutspende außreichend zu trinken!ültigen</h2>";
-                document.getElementById('donatable').style.visibility="visible";
+            if (solution === "1110") {
+                solution = "<h2>Denken Sie an Ihren gültigen Personalausweis oder Reisepass! Vergessen " +
+                  "Sie nicht vor und nach der Blutspende außreichend zu trinken!</h2>" +
+                  "<h4>Bitte vermerken Sie, dass Sie vor Ort noch einmal genauer auf verschiedene Aspekte untersucht " +
+                  "werden und dieses Ergebniss keine Garantie ist, dass Sie Blutspenden dürfen.</h4>";
+                document.getElementById("donatable").style.visibility = "visible";
             } else {
-                solution = "<div class='notDonatable'><h2>Leider sind Sie nicht passend für eine Blutspende, weil Sie nicht die eben abgefragten Voraussetzungen erfüllen!ür</h2> <h3>Wir bedauern dies und hoffen, dass Sie spenden, sobald Sie alle Voraussetzungen erfüllen.</h3> <h3>Mit freundlichen Grüßen <br> Ihr Blutspende Team der Theodor-Litt-Schule Gießen</h3> <p>Email: </p> <a href='mailto://blutspende@tls-giessen.eu'>blutspende@tls-giessen.eu</a> <h4>Falls Sie denken, dass dies ein Fehler ist, dann überprüfen Sie nochmal, ob alle Optionen richtig ausgewählt sind.</h4> <button on:click='{() => reloadPage()}'>Zu den Fragen</button></div>";
+                solution = "<div class='notDonatable'>" +
+                  "<h2>Leider sind Sie nicht passend für eine Blutspende, weil Sie nicht die eben abgefragten Voraussetzungen erfüllen!</h2>" +
+                  "<h3>Wir bedauern dies und hoffen, dass Sie spenden, sobald Sie alle Voraussetzungen erfüllen.</h3>" +
+                  "<h3>Mit freundlichen Grüßen <br> Ihr Blutspende Team der Theodor-Litt-Schule Gießen</h3>" +
+                  "<p>Email: </p> <a href='mailto://blutspende@tls-giessen.eu'>blutspende@tls-giessen.eu</a>" +
+                  "<h4>Falls Sie denken, dass dies ein Fehler ist, dann überprüfen Sie nochmal, ob alle Optionen richtig ausgewählt sind.</h4>" +
+                  "<button on:click='{() => reloadPage()}'>Zu den Fragen</button></div>";
             }
         }
 
@@ -88,15 +97,15 @@
     }
 
     function nextPage() {
-        let thisPage = window.location.pathname;
-        thisPage = window.location.pathname.split('/');
-        const id = thisPage[0];
+        let thisPage = window.location.pathname.split('/');
+        const id = thisPage[1];
         goto('/' + id + '/appointments');
     }
 
+
+
     function reloadPage() {
         const thisPage = window.location.pathname;
-        console.log('goto ' + thisPage);
         goto(thisPage);
     }
 

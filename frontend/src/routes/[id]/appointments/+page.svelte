@@ -7,9 +7,48 @@
 </svelte:head>
 
 
+<script>
+    // TODO Hardcoded durch irgendeinen python datenbank shit ersetzen, bitte formatierung einhalten!
+    import { goto } from '$app/navigation';
+    import { onMount } from "svelte";
+    import { error } from "@sveltejs/kit";
+
+    let slots = [];
+
+    onMount(async () => {
+    try {
+        const response = await fetch("https://localhost:5000/appointments", {
+        method: "GET",
+        cache: "no-cache",
+        credentials: "same-origin",
+        headers: new Headers({
+          "content-type": "application/json",
+        }),
+        });
+
+        if (!response.ok) {
+        throw new Error(`Failed to fetch. Status: ${response.status}`);
+        }
+        slots = await response.json();
+    } catch (error) {
+        console.error('Fetch error:', error);
+    }
+  });
+
+    function showSlot(slot) {
+        console.log(slots);
+        console.log(slot);
+        let thisPage = window.location.pathname;
+        goto(thisPage + '/' + slot[0] + '+' + slot[1]);
+    }
+</script>
+
+
+
 <h2>Bitte wählen sie einen Termin</h2>
+<h3>Datum: {slots[0]}</h3>
 <div class="appointments">
-    {#each slots as slot}
+    {#each slots.slice(1, -1) as slot}
         {#if slot[1] === 0}
             <button disabled class="freiePlaetze{slot[1]} appointment" on:click={() => showSlot(slot)}>{slot[0]}</button>
         {:else}
@@ -23,31 +62,3 @@
     <p class="dot dot-orange">2-3 freie Plätze</p>
     <p class="dot dot-green">4 freie Plätze</p>
 </div>
-
-<script>
-    // TODO Hardcoded durch irgendeinen python datenbank shit ersetzen, bitte formatierung einhalten!
-    import { goto } from '$app/navigation';
-    import { onMount } from "svelte";
-
-    let slots = [];
-
-    onMount( async () => {
-        const res = await fetch("https://localhost:5000/appointments", {
-            method: "GET",
-            mode: "no-cors",
-            cache: "no-cache",
-            credentials: "same-origin",
-            headers: new Headers({
-                "content-type": "application/json",
-            }),
-        });
-        slots = await res.json();
-    });
-
-    function showSlot(slot) {
-        console.log(slots);
-        console.log(slot);
-        let thisPage = window.location.pathname;
-        goto(thisPage + '/' + slot[0] + '+' + slot[1]);
-    }
-</script>

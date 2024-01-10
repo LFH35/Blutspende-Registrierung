@@ -3,9 +3,11 @@ import os
 import json
 import requests
 import urllib.parse
+from datetime import date
 
 # Third-party libraries
 from flask import Flask, redirect, request, render_template, jsonify
+from flask_cors import CORS
 from oauthlib.oauth2 import WebApplicationClient
 from dotenv import load_dotenv
 
@@ -24,6 +26,7 @@ TEMPLATES_AUTO_RELOAD = True
 
 # Flask app setup
 app = Flask(__name__)
+CORS(app)
 app.secret_key = os.getenv("SECRET_KEY") or os.urandom(24)
 
 # OAuth client setup
@@ -38,11 +41,9 @@ def index():
 
 @app.route('/login', methods=['POST'])
 def login():
-    print(request.base_url)
     if request.base_url == f"{os.getenv('API_DOMAIN')}/login":  # TODO Setup API Key Access
         # Formats the URL Encoded Form Data into JSON
         data = request.form.to_dict(urllib.parse.unquote(request.get_data().decode()))
-        print(data)
         users_name = data["name"][0]
         users_email = data["email"][0]
         unique_id = check_doner(users_email)
@@ -120,14 +121,38 @@ def callback():
 
 @app.route("/appointments")
 def appointments():
-    Appointment.add_appointment("18-09-2023")
-    date = "18-09-2023"
+    # GET the nearest date on today
+    Appointment.add_appointment("2008-06-02")
+    Appointment.add_appointment("2024-03-24")
+    Appointment.add_appointment("2024-05-18")
+    today = date.today()
+    old_dates = Appointment.get_dates()
+    new_dates = []
+    nearest_date = None
+    for appointment in old_dates:
+        day = int(appointment.split("-")[2])
+        month = int(appointment.split("-")[1])
+        year = int(appointment.split("-")[0])
+        new_dates.append(date(year, month, day))
+
+    new_dates.sort()
+
+    for appointment in new_dates:
+        if appointment > today:
+            nearest_date = str(appointment)
+            break
+
+        if appointment < today:
+            new_dates.remove(appointment)
+
+    print(type(nearest_date), nearest_date)
+
+    # Create Appointment times
     time = 1000
-    # TODO REMOVE WHEN ADMIN PANEL IS ACTIVE
-    slots = []
+    slots = [f"{day}.{month}.{year}"]
 
     while time <= 1500:
-        slots.append([f"{str(time)[:2]}:{str(time)[2:]}", Appointment.free_slots(date, time)])
+        slots.append([f"{str(time)[:2]}:{str(time)[2:]}", Appointment.free_slots(nearest_date, time)])
         if str(time).endswith("45"):
             time += 55
         else:

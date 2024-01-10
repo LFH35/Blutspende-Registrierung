@@ -37,3 +37,8 @@ mkcert -install
 cd frontend/cert
 mkcert -key-file key.pem -cert-file cert.pem localhost
 ```
+
+
+# Notes
+## Datenbank
+- The dates in the DB is only saved with the following format: `YYYY-MM-DD`
