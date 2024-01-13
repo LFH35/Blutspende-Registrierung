@@ -18,13 +18,15 @@
     let appointment= [];
     let time;
     let freeSlots;
+    let date;
 
     onMount( () => {
         thisPage = window.location.pathname.split('/');
-        id = thisPage[0];
+        id = thisPage[1];
         appointment = thisPage[3].split('+');
         time = appointment[0];
         freeSlots = appointment[1];
+        date = appointment[2];
     });
 
     async function terminBuchen() {
@@ -32,11 +34,12 @@
         console.log(freeSlots);
 
         let data = {
-            userid: id,
+            user_id: id,
             time: time,
+            date: date
         }
 
-        await fetch("https://localhost:5000/login", {
+        await fetch("https://localhost:5000/set_appointment", {
             method: "POST",
             mode: "no-cors",
             cache: "no-cache",

@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 # Internal imports
 from doner import Doner
 from appointment import Appointment
-from utils import new_uid, check_doner, get_iserv_provider_cfg
+from utils import new_uid, check_doner, get_iserv_provider_cfg, send_confirmation_email
 
 load_dotenv()
 
@@ -161,20 +161,31 @@ def appointments():
     return slots
 
 
-@app.route("/set_appointment", methods=["GET", "POST"])
+@app.route("/set_appointment", methods=["POST"])
 def set_appointment():
-    if current_user.is_authenticated:
-        appointment_check = current_user.appointment
-        time = request.args.get('time'),
-        date = Appointment.get_dates()[0]
-        Appointment.add_doner(date, time[0], current_user.user_id)
-        if not appointment_check:
-            utils.send_confirmation_email(current_user, date, time[0])
-        return render_template("confirmation.html", time_slot=time[0], date=date,
-                               current_user=current_user)
+    # if request.base_url == f"{os.getenv('API_DOMAIN')}/login":  # TODO Setup API Key Access
+    # Formats the URL Encoded Form Data into JSON
+    data = urllib.parse.unquote(request.get_data().decode())
+    json_data = json.loads(data)
+    time = json_data["time"]
+    appointment_date = json_data["date"]
+    user_id = json_data["user_id"]
 
-    else:
-        return redirect(url_for("index"))
+    # TODO Format time
+    for char in time:
+        new_time = ""
+        if not char.equals(":"):
+            new_time.join(char)
+
+    time = int(new_time)
+
+    Appointment.add_doner(appointment_date, time, user_id)
+    if not appointment_check:
+        send_confirmation_email(Doner.get(user_id), appointment_date, time)
+    return redirect(os.getenv("FRONTENT_DOMAIN" + "/success"))
+
+    # else:
+    #     return redirect("https://giybf.com")
 
 
 @app.route("/admin")

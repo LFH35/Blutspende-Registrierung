@@ -8,7 +8,6 @@
 
 
 <script>
-    // TODO Hardcoded durch irgendeinen python datenbank shit ersetzen, bitte formatierung einhalten!
     import { goto } from '$app/navigation';
     import { onMount } from "svelte";
     import { error } from "@sveltejs/kit";
@@ -16,30 +15,30 @@
     let slots = [];
 
     onMount(async () => {
-    try {
-        const response = await fetch("https://localhost:5000/appointments", {
-        method: "GET",
-        cache: "no-cache",
-        credentials: "same-origin",
-        headers: new Headers({
-          "content-type": "application/json",
-        }),
-        });
+        try {
+            const response = await fetch("https://localhost:5000/appointments", {
+                method: "GET",
+                cache: "no-cache",
+                credentials: "same-origin",
+                headers: new Headers({
+                    "content-type": "application/json"
+                })
+            });
 
-        if (!response.ok) {
-        throw new Error(`Failed to fetch. Status: ${response.status}`);
+            if (!response.ok) {
+                throw new Error(`Failed to fetch. Status: ${response.status}`);
+            }
+            slots = await response.json();
+        } catch (error) {
+            console.error("Fetch error:", error);
         }
-        slots = await response.json();
-    } catch (error) {
-        console.error('Fetch error:', error);
-    }
-  });
+    });
 
     function showSlot(slot) {
         console.log(slots);
         console.log(slot);
         let thisPage = window.location.pathname;
-        goto(thisPage + '/' + slot[0] + '+' + slot[1]);
+        goto(thisPage + '/' + slot[0] + '+' + slot[1] + '+' + slots[0]);
     }
 </script>
 
