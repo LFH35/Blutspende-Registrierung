@@ -49,6 +49,7 @@
             }),
             body: JSON.stringify(data),
         })
+        await goto('/' + id + '/success');
         //#TODO termin mit id und time buchen
     }
 </script>

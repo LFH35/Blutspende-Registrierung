@@ -1,6 +1,8 @@
 # Python standard libraries
 import os
 import json
+import re
+
 import requests
 import urllib.parse
 from datetime import date
@@ -145,8 +147,6 @@ def appointments():
         if appointment < today:
             new_dates.remove(appointment)
 
-    print(type(nearest_date), nearest_date)
-
     # Create Appointment times
     time = 1000
     slots = [f"{day}.{month}.{year}"]
@@ -171,18 +171,26 @@ def set_appointment():
     appointment_date = json_data["date"]
     user_id = json_data["user_id"]
 
-    # TODO Format time
-    for char in time:
-        new_time = ""
-        if not char.equals(":"):
-            new_time.join(char)
+    # Format the date
+    dates = appointment_date.split(".")
+    for i in range(len(dates)):
+        if len(dates[i]) <= 1:
+            dates[i] = "0" + dates[i]
 
-    time = int(new_time)
+    appointment_date = f"{dates[2]}-{dates[1]}-{dates[0]}"
+    time = re.sub("\D", "", time)
 
-    Appointment.add_doner(appointment_date, time, user_id)
+    appointment_check = Doner.get(user_id).appointment
+
     if not appointment_check:
-        send_confirmation_email(Doner.get(user_id), appointment_date, time)
-    return redirect(os.getenv("FRONTENT_DOMAIN" + "/success"))
+        Appointment.add_doner(appointment_date, int(time), user_id)
+
+        print(appointment_check)
+
+        send_confirmation_email(Doner.get(user_id), appointment_date, int(time))
+        print("send")
+
+    return redirect(os.getenv("FRONTENT_DOMAIN") + "/" + user_id + "/success")
 
     # else:
     #     return redirect("https://giybf.com")

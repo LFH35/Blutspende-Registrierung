@@ -99,6 +99,7 @@ class Appointment:
     def add_doner(date, time, doner_id):
         slot = session.query(Appointments).filter(Appointments.time == time,
                                                   Appointments.date == date).first()
+        print(slot)
 
         doner = session.query(Doners).filter(Doners.user_id == doner_id).first()
 
