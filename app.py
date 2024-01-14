@@ -8,7 +8,7 @@ import urllib.parse
 from datetime import date
 
 # Third-party libraries
-from flask import Flask, redirect, request, render_template, jsonify
+from flask import Flask, redirect, request, render_template, jsonify, url_for
 from flask_cors import CORS
 from oauthlib.oauth2 import WebApplicationClient
 from dotenv import load_dotenv
@@ -63,7 +63,6 @@ def login():
         return redirect("https://giybf.com")
 
 
-# TODO Repair the IServ Login - NOTE: InvalidGrantError
 @app.route("/iservlogin")
 def iservlogin():
     # Find out what URL to hit for iserv login
@@ -118,7 +117,13 @@ def callback():
         Doner.create(unique_id, users_name, users_email)
 
     # Send user back to homepage
-    return redirect(os.getenv("FRONTENT_DOMAIN") + unique_id + "/questions")
+    return redirect(url_for("processing", unique_id=unique_id))
+
+
+@app.route("/processing")
+def processing():
+    unique_id = request.args['unique_id']
+    return redirect(os.getenv("FRONTENT_DOMAIN") + "/" + unique_id + "/questions")
 
 
 @app.route("/appointments")
@@ -178,12 +183,13 @@ def set_appointment():
             dates[i] = "0" + dates[i]
 
     appointment_date = f"{dates[2]}-{dates[1]}-{dates[0]}"
+    mail_date = f"{dates[0]}.{dates[1]}.{dates[2]}"
     time = re.sub("\D", "", time)
 
     appointment_check = Doner.get(user_id).appointment
     if not appointment_check:
         Appointment.add_doner(appointment_date, int(time), user_id)
-        send_confirmation_email(Doner.get(user_id), appointment_date, time)
+        send_confirmation_email(Doner.get(user_id), mail_date, time)
 
     return redirect(os.getenv("FRONTENT_DOMAIN") + "/" + user_id + "/success")
 
