@@ -89,7 +89,7 @@
             }
         }
 
-        index++; 
+        index++;
 
         if (index < questions.length) { 
             questions[index].style.display = 'flex'; 

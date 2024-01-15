@@ -22,6 +22,7 @@ gunicorn --keyfile ./frontend/cert/key.pem --certfile ./frontend/cert/cert.pem -
 
 ### Windows (Only for testing use. Do NOT use this in production!)
 ```shell
+pip install -r requirements.txt
 python3 app.py
 ```
 
