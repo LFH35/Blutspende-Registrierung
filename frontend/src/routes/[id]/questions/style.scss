@@ -5,7 +5,7 @@
     justify-content: space-around;
     align-items: center;
 
-    h2 {
+    h2, h3, h4 {
         margin: 25px;
         text-align: center;
     }
@@ -57,7 +57,7 @@
         -ms-user-drag: none;
     }
 
-    #donatable {
+    #donatable, .notDonatable {
         height: 50%;
         visibility: hidden;
         display: flex;
@@ -77,19 +77,4 @@
             color: $green;
         }
     }
-
-    .notDonatable { //TODO finish Design
-        height: 100%;
-        text-align: center;
-
-        #donatable {
-            height: 0;
-        }
-    }
-}
-
-
-
-p {
-    text-align: center;
 }

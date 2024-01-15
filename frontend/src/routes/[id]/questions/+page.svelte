@@ -68,7 +68,7 @@
 
     function nextQuestion(answer) {
         solution += answer;
-
+ 
         questions[index].style.display = 'none';
 
         if (solution.length === 4) {
@@ -85,7 +85,7 @@
                   "<h3>Mit freundlichen Grüßen <br> Ihr Blutspende Team der Theodor-Litt-Schule Gießen</h3>" +
                   "<p>Email: </p> <a href='mailto://blutspende@tls-giessen.eu'>blutspende@tls-giessen.eu</a>" +
                   "<h4>Falls Sie denken, dass dies ein Fehler ist, dann überprüfen Sie nochmal, ob alle Optionen richtig ausgewählt sind.</h4>" +
-                  "<button on:click='{() => reloadPage()}'>Zu den Fragen</button></div>";
+                  "<button on:click='{() => reloadPage()}' class='btn-donatable'>Zu den Fragen</button></div>";
             }
         }
 
