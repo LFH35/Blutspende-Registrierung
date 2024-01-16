@@ -49,6 +49,9 @@
 
         <button class="login-btn btn-style1" type="submit">Fortfahren</button>
 
+
+        <p>Mit dem Fortfahren des Registrierungsprozess stimmen Sie zu, dass wir Ihre Daten bis zu dem Spendetermin
+            speichern.</p>
         <hr>
 
         <img class="iserv-logo" src="img/ISERV.svg" alt="IServ-Logo">
