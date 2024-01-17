@@ -9,7 +9,7 @@
 <script>
     process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0"; // TODO DELETE THIS LINE IF YOU GO IN PRODUCTION USE!!!
 
-    async function login(event) {
+    async function login(event, {cookies}) {
         event.preventDefault(); // prevent the default behave of the form
 
         const nameInput = event.target.querySelector("#input-name");
@@ -24,16 +24,31 @@
         };
 
         // TODO finish the Login here
+        let user_id;
+        try {
+            const response = await fetch("https://localhost:5000/appointments", {
+                method: "GET",
+                cache: "no-cache",
+                credentials: "same-origin",
+                headers: new Headers({
+                    "content-type": "application/json"
+                })
+            });
 
-        await fetch("https://localhost:5000/login", {
-            method: "POST",
-            mode: "no-cors",
-            cache: "no-cache",
-            credentials: "same-origin",
-            headers: new Headers({
-                "content-type": "application/json",
-            }),
-            body: JSON.stringify(data),
+            if (!response.ok) {
+                throw new Error(`Failed to fetch. Status: ${response.status}`);
+            }
+            user_id = await response.json();
+        } catch (error) {
+            console.error("Fetch error:", error);
+        }
+
+        cookies.set("user_id", user_id, {
+            httpOnly: true,
+            sameSite: 'strict',
+            secure: 'false',
+            path: '/',
+            maxAge: 60 * 60 * 24 * 7
         })
         // No Navigator needed, because the API redirects you to the questions page
     }
