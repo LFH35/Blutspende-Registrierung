@@ -10,7 +10,6 @@
 <script>
     import { goto } from '$app/navigation';
     import { onMount } from "svelte";
-    import { error } from "@sveltejs/kit";
 
     let slots = [];
 
@@ -44,7 +43,7 @@
 
 
 
-<h2>Bitte wählen sie einen Termin</h2>
+<h2>Bitte wählen Sie einen Termin</h2>
 <h3>Datum: {slots[0]}</h3>
 <div class="appointments">
     {#each slots.slice(1, -1) as slot}
