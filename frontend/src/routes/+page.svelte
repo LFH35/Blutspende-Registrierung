@@ -32,7 +32,6 @@
                 credentials: 'same-origin',
                 headers: new Headers({
                     'content-type': 'application/json',
-                    'api-key': $process.env.API_KEY
                 }),
                 data: JSON.stringify(data)
             });

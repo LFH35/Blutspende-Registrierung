@@ -46,10 +46,4 @@ class Appointments(Base):
                f"doner1={self.doner1!r}, doner2={self.doner2!r}," \
                f"doner3={self.doner3!r}, doner4={self.doner4!r})"
 
-
-class Keys(Base):
-    __tablename__ = "keys"
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    key = Column(String, unique=True)
-
 Base.metadata.create_all(engine)

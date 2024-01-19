@@ -5,7 +5,7 @@ import requests
 import os
 
 # database & env
-from db import session, Doners, Keys
+from db import session, Doners
 from dotenv import load_dotenv
 
 # Mail imports

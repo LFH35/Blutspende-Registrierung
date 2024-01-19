@@ -43,9 +43,8 @@ def index():
 
 @app.route('/login', methods=['POST'])
 def login():
-    api_key = request.headers.get('api-key')
-    print(api_key)
-    if authenticate_api_key(api_key):  # TODO Setup API Key Access
+    print(request.base_url)
+    if request.base_url == f"{os.getenv('API_DOMAIN')}/login":
         # Formats the URL Encoded Form Data into JSON
         data = request.form.to_dict(urllib.parse.unquote(request.get_data().decode()))
         users_name = data["name"][0]
