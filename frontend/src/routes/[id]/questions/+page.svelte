@@ -6,7 +6,6 @@
 	<title>Blutspende | Fragebogen</title>
 </svelte:head>
 
-
     <div class="card">
         <h2>Sind Sie im Alter zwischen 18 und 60 Jahre?</h2>
         <div class="btns">
@@ -55,14 +54,13 @@
     import { onMount } from "svelte";
     import { goto } from '$app/navigation';
 
-
     let questions = [];
     let solution = "";
     let index = 0;
+    let id;
 
     onMount( () => {
         questions = document.querySelectorAll('.card');
-
         questions[index].style.display = 'flex';
     });
 
@@ -97,11 +95,9 @@
     }
 
     function nextPage() {
-        // let thisPage = window.location.pathname.split('/');
+        let id = window.location.pathname.split('/')[1];
         goto('/' + id + '/appointments');
     }
-
-
 
     function reloadPage() {
         const thisPage = window.location.pathname;
