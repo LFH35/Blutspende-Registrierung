@@ -44,9 +44,20 @@
     </div>
 
     <div class="card">
-        {@html solution}
-        <div id="donatable">
-            <button class="btn-donatable" on:click={() => nextPage()}>Jetzt Termin Buchen</button>
+        <div id="accepted">
+            <h2>Denken Sie an Ihren gültigen Personalausweis oder Reisepass! Vergessen Sie nicht vor und nach der Blutspende außreichend zu trinken!</h2>
+            <h4>Bitte vermerken Sie, dass Sie vor Ort noch einmal genauer auf verschiedene Aspekte untersucht werden und dieses Ergebniss keine Garantie ist, dass Sie Blutspenden dürfen.</h4>
+            <div id="donatable">
+                <button class="btn-donatable" on:click={() => nextPage()}>Jetzt Termin Buchen</button>
+                <img src="../favicon.png" alt="Bluttropfen mit Checkliste">
+            </div>
+        </div>
+        <div id="not-accepted">
+            <h2>Leider sind Sie nicht passend für eine Blutspende, da Sie die Voraussetzungen nicht erfüllen!</h2>
+            <h3>Wir bedauern dies und hoffen, dass Sie spenden, sobald Sie alle Voraussetzungen erfüllen.
+            <br>Mit freundlichen Grüßen <br> Ihr Blutspende Team der TLS Gießen</h3>
+            <h5>Falls Sie denken, dass dies ein Fehler ist, dann überprüfen Sie nochmal, ob alle Optionen richtig ausgewählt sind.</h5>
+            <button on:click='{() => reloadPage()}' class="btn-nein">Zu den Fragen</button>
             <img src="../favicon.png" alt="Bluttropfen mit Checkliste">
         </div>
     </div>
@@ -73,19 +84,9 @@
 
         if (solution.length === 4) {
             if (solution === "1110") {
-                solution = "<h2>Denken Sie an Ihren gültigen Personalausweis oder Reisepass! Vergessen " +
-                  "Sie nicht vor und nach der Blutspende außreichend zu trinken!</h2>" +
-                  "<h4>Bitte vermerken Sie, dass Sie vor Ort noch einmal genauer auf verschiedene Aspekte untersucht " +
-                  "werden und dieses Ergebniss keine Garantie ist, dass Sie Blutspenden dürfen.</h4>";
-                document.getElementById("donatable").style.visibility = "visible";
+                document.getElementById("accepted").style.display = 'flex';
             } else {
-                solution = "<div class='notDonatable'>" +
-                  "<h2>Leider sind Sie nicht passend für eine Blutspende, weil Sie nicht die eben abgefragten Voraussetzungen erfüllen!</h2>" +
-                  "<h3>Wir bedauern dies und hoffen, dass Sie spenden, sobald Sie alle Voraussetzungen erfüllen.</h3>" +
-                  "<h3>Mit freundlichen Grüßen <br> Ihr Blutspende Team der Theodor-Litt-Schule Gießen</h3>" +
-                  "<p>Email: </p> <a href='mailto://blutspende@tls-giessen.eu'>blutspende@tls-giessen.eu</a>" +
-                  "<h4>Falls Sie denken, dass dies ein Fehler ist, dann überprüfen Sie nochmal, ob alle Optionen richtig ausgewählt sind.</h4>" +
-                  "<button on:click='{() => reloadPage()}' class='btn-donatable'>Zu den Fragen</button></div>";
+                document.getElementById("not-accepted").style.display = 'flex';
             }
         }
 
