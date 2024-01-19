@@ -97,8 +97,7 @@
     }
 
     function nextPage() {
-        let thisPage = window.location.pathname.split('/');
-        const id = thisPage[1];
+        // let thisPage = window.location.pathname.split('/');
         goto('/' + id + '/appointments');
     }
 

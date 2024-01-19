@@ -5,7 +5,7 @@ import requests
 import os
 
 # database & env
-from db import session, Doners
+from db import session, Doners, Keys
 from dotenv import load_dotenv
 
 # Mail imports
@@ -105,3 +105,11 @@ def send_confirmation_email(current_user, date, time):
             server.starttls(context=context)
             server.login(sender_email, password)
             server.sendmail(sender_email, receiver_email, text)
+
+
+def authenticate_api_key(api_key):
+    valid = session.query(Keys).filter(Keys.key == api_key).first()
+    if not valid:
+        return False
+
+    return True

@@ -8,6 +8,9 @@ export default defineConfig({
         https: {
             key: fs.readFileSync(`${__dirname}/cert/key.pem`),
             cert: fs.readFileSync(`${__dirname}/cert/cert.pem`)
-        }
+        },
+				hmr: {
+					overlay: false,
+				}
     }
 });

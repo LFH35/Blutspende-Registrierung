@@ -103,28 +103,33 @@ class Appointment:
 
         doner = session.query(Doners).filter(Doners.user_id == doner_id).first()
 
-        if doner.appointment:
-            return
+        if doner:
 
-        if slot.left_slots == 0:
-            return
+            if doner.appointment:
+                return
 
-        elif slot.left_slots == 4:
-            slot.doner1 = doner_id
+            if slot.left_slots == 0:
+                return
 
-        elif slot.left_slots == 3:
-            slot.doner2 = doner_id
+            elif slot.left_slots == 4:
+                slot.doner1 = doner_id
 
-        elif slot.left_slots == 2:
-            slot.doner3 = doner_id
+            elif slot.left_slots == 3:
+                slot.doner2 = doner_id
 
-        elif slot.left_slots == 1:
-            slot.doner4 = doner_id
+            elif slot.left_slots == 2:
+                slot.doner3 = doner_id
 
-        slot.left_slots -= 1
+            elif slot.left_slots == 1:
+                slot.doner4 = doner_id
 
-        doner.appointment = True
-        session.commit()
+            slot.left_slots -= 1
+
+            doner.appointment = True
+            session.commit()
+
+        else:
+            return null
 
 if __name__ == "__main__":
     app.run()

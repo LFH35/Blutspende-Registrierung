@@ -8,7 +8,7 @@ import urllib.parse
 from datetime import date
 
 # Third-party libraries
-from flask import Flask, redirect, request, render_template, jsonify, url_for
+from flask import Flask, redirect, request, render_template, jsonify, url_for, make_response, abort
 from flask_cors import CORS
 from oauthlib.oauth2 import WebApplicationClient
 from dotenv import load_dotenv
@@ -16,7 +16,7 @@ from dotenv import load_dotenv
 # Internal imports
 from doner import Doner
 from appointment import Appointment
-from utils import new_uid, check_doner, get_iserv_provider_cfg, send_confirmation_email
+from utils import new_uid, check_doner, get_iserv_provider_cfg, send_confirmation_email, authenticate_api_key
 
 load_dotenv()
 
@@ -43,7 +43,9 @@ def index():
 
 @app.route('/login', methods=['POST'])
 def login():
-    if request.base_url == f"{os.getenv('API_DOMAIN')}/login":  # TODO Setup API Key Access
+    api_key = request.headers.get('api-key')
+    print(api_key)
+    if authenticate_api_key(api_key):  # TODO Setup API Key Access
         # Formats the URL Encoded Form Data into JSON
         data = request.form.to_dict(urllib.parse.unquote(request.get_data().decode()))
         users_name = data["name"][0]
@@ -56,11 +58,13 @@ def login():
         if not Doner.get(unique_id):
             Doner.create(unique_id, users_name, users_email)
 
+        response = make_response(redirect(os.getenv("FRONTENT_DOMAIN") + "/" + unique_id + "/questions"))
+        response.set_cookie('user_id', unique_id)
         # Send the UserID to the frontend
-        return redirect(os.getenv("FRONTENT_DOMAIN") + "/" + unique_id + "/questions")
+        return response
 
     else:
-        return redirect("https://giybf.com")
+        abort(403)
 
 
 @app.route("/iservlogin")
