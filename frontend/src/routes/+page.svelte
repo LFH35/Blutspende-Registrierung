@@ -57,12 +57,14 @@
         <button class="login-btn btn-style1" type="submit">Fortfahren</button>
 
 
-        <p>Mit dem Fortfahren des Registrierungsprozess stimmen Sie zu, dass wir Ihre Daten bis zu dem Spendetermin
+        <p>Mit dem Fortfahren des Registrierungsprozesses stimmen Sie zu, dass wir Ihre Daten bis zu dem Spendetermin
             speichern.</p>
         <hr>
 
         <img class="iserv-logo" src="img/ISERV.svg" alt="IServ-Logo">
 
         <a class="btn-style1" href="https://127.0.0.1:5000/iservlogin">Daten über IServ importieren</a>
+
+        <a href="http://wp.tls-gi.de/impressum/">Impressum</a>
     </form>
 </div>
