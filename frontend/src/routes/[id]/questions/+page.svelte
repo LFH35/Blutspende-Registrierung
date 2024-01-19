@@ -96,13 +96,13 @@
     }
 
     function nextPage() {
-        let id = window.location.pathname.split('/')[1];
+        id = window.location.pathname.split('/')[1];
         goto('/' + id + '/appointments');
     }
 
     function reloadPage() {
-        const thisPage = window.location.pathname;
-        goto(thisPage);
+        id = window.location.pathname.split('/')[1];
+        goto('/' + id + '/question');
     }
 
 </script>
