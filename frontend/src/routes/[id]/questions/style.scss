@@ -107,7 +107,7 @@
 
 #not-accepted {
     h2, h3, h4, p {
-        margin: 0;
+        margin: 0, 25px;
         padding: 0;
         margin-bottom: -25px;
     }
@@ -124,10 +124,6 @@
     }
 
     .btn-nein {
-        height: 25%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
         background-color: $bloody-red;
         color: $dark-red;
         border-color: $dark-red;
