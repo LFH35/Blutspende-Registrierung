@@ -58,7 +58,7 @@ def login():
             Doner.create(unique_id, users_name, users_email)
 
         response = make_response(redirect(os.getenv("FRONTENT_DOMAIN") + "/" + unique_id + "/questions"))
-        response.set_cookie('user_id', unique_id)
+        response.set_cookie('user_id', unique_id, httponly=False)
         # Send the UserID to the frontend
         return response
 

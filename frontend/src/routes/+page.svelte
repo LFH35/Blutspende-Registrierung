@@ -24,9 +24,8 @@
             email: mail
         };
         // TODO finish the Login here
-        let user_id;
         try {
-            const response = await fetch('https://localhost:5000/appointments', {
+            await fetch('https://localhost:5000/appointments', {
                 method: 'GET',
                 cache: 'no-cache',
                 credentials: 'same-origin',
@@ -35,10 +34,6 @@
                 }),
                 data: JSON.stringify(data)
             });
-
-            if (!response.ok) {
-                throw new Error(`Failed to fetch. Status: ${response.status}`);
-            }
         } catch (error) {
             console.error('Fetch error:', error);
         }

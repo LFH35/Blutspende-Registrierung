@@ -24,9 +24,6 @@
                 })
             });
 
-            if (!response.ok) {
-                throw new Error(`Failed to fetch. Status: ${response.status}`);
-            }
             slots = await response.json();
         } catch (error) {
             console.error("Fetch error:", error);

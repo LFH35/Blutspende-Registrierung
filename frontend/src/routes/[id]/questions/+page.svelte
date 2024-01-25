@@ -64,6 +64,7 @@
 <script>
     import { onMount } from "svelte";
     import { goto } from '$app/navigation';
+    import { browser } from '$app/environment';
 
     let questions = [];
     let solution = "";
@@ -90,13 +91,15 @@
 
         index++;
 
-        if (index < questions.length) { 
-            questions[index].style.display = 'flex'; 
+        if (index < questions.length) {
+            questions[index].style.display = 'flex';
         }
     }
 
     function nextPage() {
         id = window.location.pathname.split('/')[1];
+        id = getCookie('user_id');
+        console.log(id);
         goto('/' + id + '/appointments');
     }
 
