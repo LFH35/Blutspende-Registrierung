@@ -14,7 +14,7 @@ export const actions = {
 
 		// TODO finish the Login here
 		try {
-			await fetch('https://localhost:5000/appointments', {
+			await fetch('https://localhost:5000/login', {
 				method: 'GET',
 				cache: 'no-cache',
 				credentials: 'same-origin',
