@@ -43,27 +43,22 @@ def index():
 
 @app.route('/login', methods=['POST'])
 def login():
-    print(request.base_url)
-    if request.base_url == f"{os.getenv('API_DOMAIN')}/login":
-        # Formats the URL Encoded Form Data into JSON
-        data = request.form.to_dict(urllib.parse.unquote(request.get_data().decode()))
-        users_name = data["name"][0]
-        users_email = data["email"][0]
-        unique_id = check_doner(users_email)
-        if not unique_id:
-            unique_id = new_uid()
+    # Formats the URL Encoded Form Data into JSON
+    data = request.form.to_dict(urllib.parse.unquote(request.get_data().decode()))
+    users_name = data["name"][0]
+    users_email = data["email"][0]
+    unique_id = check_doner(users_email)
+    if not unique_id:
+        unique_id = new_uid()
 
-        # Add User to the database
-        if not Doner.get(unique_id):
-            Doner.create(unique_id, users_name, users_email)
+    # Add User to the database
+    if not Doner.get(unique_id):
+        Doner.create(unique_id, users_name, users_email)
 
-        response = make_response(redirect(os.getenv("FRONTENT_DOMAIN") + "/" + unique_id + "/questions"))
-        response.set_cookie('user_id', unique_id, httponly=False)
-        # Send the UserID to the frontend
-        return response
-
-    else:
-        abort(403)
+    response = make_response(redirect(os.getenv("FRONTENT_DOMAIN") + "/" + unique_id + "/questions?id=" + unique_id))
+    response.set_cookie('user_id', unique_id, httponly=False)
+    # Send the UserID to the frontend
+    return response
 
 
 @app.route("/iservlogin")
@@ -126,7 +121,7 @@ def callback():
 @app.route("/processing")
 def processing():
     unique_id = request.args['unique_id']
-    return redirect(os.getenv("FRONTENT_DOMAIN") + "/" + unique_id + "/questions")
+    return redirect(os.getenv("FRONTENT_DOMAIN") + "/" + unique_id + "/questions?id=" + unique_id)
 
 
 @app.route("/appointments")

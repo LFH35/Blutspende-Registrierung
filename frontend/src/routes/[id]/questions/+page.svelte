@@ -96,9 +96,25 @@
         }
     }
 
+    function getCookie(cname) {  // cname stands for cookie name
+        let name = cname + '=';
+        let decodedCookie = decodeURIComponent(document.cookie);
+        console.log('TEST', decodedCookie);
+        let ca = decodedCookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            if (c.startsWith(name)) {
+                console.log("COOKIE:", c)
+                return c.split("/")[1]
+            }
+        }
+        return '';
+    }
+
     function nextPage() {
-        id = window.location.pathname.split('/')[1];
-        id = getCookie('user_id');
+        // id = window.location.pathname.split('?')[1];
+        document.cookie = `user_id=${window.location.pathname.split('=')[0]};`;
+        id = getCookie("user_id")
         console.log(id);
         goto('/' + id + '/appointments');
     }
