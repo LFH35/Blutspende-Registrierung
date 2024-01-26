@@ -1,5 +1,5 @@
 <style lang="scss">
-    @import 'style.scss';
+    @import 'style';
 </style>
 
 <div class="content">
@@ -22,8 +22,8 @@
 
     onMount( () => {
         thisPage = window.location.pathname.split('/');
-        id = thisPage[1];
-        appointment = thisPage[3].split('+');
+        id = document.cookie.split("=")[1];
+        appointment = thisPage[2].split('+');
         time = appointment[0];
         freeSlots = appointment[1];
         date = appointment[2];
@@ -49,7 +49,7 @@
             }),
             body: JSON.stringify(data),
         })
-        await goto('/' + id + '/success');
-        //#TODO termin mit id und time buchen
+
+        await goto('/success');
     }
 </script>

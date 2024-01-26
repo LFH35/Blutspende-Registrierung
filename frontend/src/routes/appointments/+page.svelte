@@ -1,5 +1,5 @@
 <style lang="scss">
-    @import 'style.scss';
+    @import 'style';
 </style>
 
 <svelte:head>
@@ -31,8 +31,6 @@
     });
 
     function showSlot(slot) {
-        console.log(slots);
-        console.log(slot);
         let thisPage = window.location.pathname;
         goto(thisPage + '/' + slot[0] + '+' + slot[1] + '+' + slots[0]);
     }

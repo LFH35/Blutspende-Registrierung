@@ -1,5 +1,5 @@
 <style lang="scss">
-    @import 'style.scss';
+    @import 'style';
 </style>
 
 <svelte:head>
@@ -64,12 +64,10 @@
 <script>
     import { onMount } from "svelte";
     import { goto } from '$app/navigation';
-    import { browser } from '$app/environment';
 
     let questions = [];
     let solution = "";
     let index = 0;
-    let id;
 
     onMount( () => {
         questions = document.querySelectorAll('.card');
@@ -96,32 +94,12 @@
         }
     }
 
-    function getCookie(cname) {  // cname stands for cookie name
-        let name = cname + '=';
-        let decodedCookie = decodeURIComponent(document.cookie);
-        console.log('TEST', decodedCookie);
-        let ca = decodedCookie.split(';');
-        for (let i = 0; i < ca.length; i++) {
-            let c = ca[i];
-            if (c.startsWith(name)) {
-                console.log("COOKIE:", c)
-                return c.split("/")[1]
-            }
-        }
-        return '';
-    }
-
     function nextPage() {
-        // id = window.location.pathname.split('?')[1];
-        document.cookie = `user_id=${window.location.pathname.split('=')[0]};`;
-        id = getCookie("user_id")
-        console.log(id);
-        goto('/' + id + '/appointments');
+        goto('/appointments');
     }
 
     function reloadPage() {
-        id = window.location.pathname.split('/')[1];
-        goto('/' + id + '/question');
+        goto('/question');
     }
 
 </script>

@@ -1,5 +1,5 @@
 <style lang="scss">
-    @import 'style.scss';
+    @import 'style';
 </style>
 
 <div class="card">

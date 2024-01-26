@@ -55,7 +55,7 @@ def login():
     if not Doner.get(unique_id):
         Doner.create(unique_id, users_name, users_email)
 
-    response = make_response(redirect(os.getenv("FRONTENT_DOMAIN") + "/" + unique_id + "/questions?id=" + unique_id))
+    response = make_response(redirect(os.getenv("FRONTENT_DOMAIN") + "/processing?id=" + unique_id))
     response.set_cookie('user_id', unique_id, httponly=False)
     # Send the UserID to the frontend
     return response
@@ -121,15 +121,13 @@ def callback():
 @app.route("/processing")
 def processing():
     unique_id = request.args['unique_id']
-    return redirect(os.getenv("FRONTENT_DOMAIN") + "/" + unique_id + "/questions?id=" + unique_id)
+    return redirect(os.getenv("FRONTENT_DOMAIN") + "/processing?id=" + unique_id)
 
 
 @app.route("/appointments")
 def appointments():
     # GET the nearest date on today
-    Appointment.add_appointment("2008-06-02")
-    Appointment.add_appointment("2024-03-24")
-    Appointment.add_appointment("2024-05-18")
+    Appointment.add_appointment("2024-02-06")
     today = date.today()
     old_dates = Appointment.get_dates()
     new_dates = []
@@ -191,41 +189,38 @@ def set_appointment():
 
     return redirect(os.getenv("FRONTENT_DOMAIN") + "/" + user_id + "/success")
 
-    # else:
-    #     return redirect("https://giybf.com")
 
-
-@app.route("/admin")
-def admin():
-    if current_user.is_authenticated and current_user.admin:
-        Appointment.add_appointment("18-11-2023")
-        # first get the date of the last registration time
-        # then get from this date all appointments
-        data = Appointment.get_appointment(Appointment.get_dates()[-1])
-        return render_template("admin.html", data=data, doner=Doner.get)
-
-    else:
-        return redirect(url_for("index"))
-
-
-@app.route("/admin/termine")
-def admin_appointments():
-    if current_user.is_authenticated and current_user.admin:
-        Appointment.add_appointment("18-11-2023")
-        # first get the date of the last registration time
-        # then get from this date all appointments
-        data = Appointment.get_appointment(Appointment.get_dates()[-1])
-        return render_template("admin_doner_overview.html", data=data, doner=Doner.get, print=print)
-
-    else:
-        return redirect(url_for("index"))
-
-
-@app.route("/admin/spender")
-def admin_doners():
-    if current_user.is_authenticated and current_user.admin:
-        data = Appointment.get_appointment(Appointment.get_dates()[-1])
-        return render_template("admin_doner_overview.html", data=data, print=print)
+# ----------------------------------
+# FOR ADMIN PURPOSE LATER
+# @app.route("/admin")
+# def admin():
+#     if current_user.is_authenticated and current_user.admin:
+#         Appointment.add_appointment("18-11-2023")
+#         # first get the date of the last registration time
+#         # then get from this date all appointments
+#         data = Appointment.get_appointment(Appointment.get_dates()[-1])
+#         return render_template("admin.html", data=data, doner=Doner.get)
+#
+#     else:
+#         return redirect(url_for("index"))
+#
+#
+# @app.route("/admin/termine")
+# def admin_appointments():
+#     if current_user.is_authenticated and current_user.admin:
+#         Appointment.add_appointment("06-02-2024")
+#         data = Appointment.get_appointment(Appointment.get_dates()[-1])
+#         return render_template("admin_doner_overview.html", data=data, doner=Doner.get, print=print)
+#
+#     else:
+#         return redirect(url_for("index"))
+#
+#
+# @app.route("/admin/spender")
+# def admin_doners():
+#     if current_user.is_authenticated and current_user.admin:
+#         data = Appointment.get_appointment(Appointment.get_dates()[-1])
+#         return render_template("admin_doner_overview.html", data=data, print=print)
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=5000, use_reloader=True, debug=True, ssl_context="adhoc")
