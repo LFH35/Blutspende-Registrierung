@@ -44,24 +44,18 @@
 
 <div class='box'>
 	<form class='login-form'>
-		<h1>Registierung</h1>
-
-		<input class='input-style1' id='input-name' name='name' placeholder='Maximilian Mustermann' required
-					 type='text'>
-
-		<input class='input-style1' id='input-mail' name='email' placeholder='max.mustermann@tls-giessen.eu'
-					 required type='email'>
-
-		<button class='login-btn btn-style1' type='submit'>Fortfahren</button>
-
-
-		<p>Mit dem Fortfahren des Registrierungsprozesses stimmen Sie zu, dass wir Ihre Daten bis zu dem Spendetermin
-			speichern.</p>
-		<hr>
+		<h1>Anmeldung</h1>
 
 		<img alt='IServ-Logo' class='iserv-logo' src='img/ISERV.svg'>
 
 		<a class='btn-style1' href='https://127.0.0.1:5000/iservlogin'>Daten über IServ importieren</a>
+
+		<br>
+
+		<hr>
+
+		<p>Mit dem Fortfahren des Registrierungsprozesses stimmen Sie zu, dass wir Ihre Daten bis zu dem Spendetermin
+			speichern.</p>
 
 		<a href='http://wp.tls-gi.de/impressum/'>Impressum</a>
 	</form>
