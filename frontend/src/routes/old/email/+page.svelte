@@ -31,7 +31,7 @@
                   <td class="es-m-p0r es-m-p20b" valign="top" align="center" style="padding:0;Margin:0;width:180px">
                    <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                      <tr>
-                      <td align="center" style="padding:0;Margin:0;font-size:0"><img src="https://eebzfjc.stripocdn.email/content/guids/CABINET_5eaa7f45a8aacc10d23953ae1850dad7c971c2bcc2ca34f35ad3f7755de75c84/images/favicon.png" alt="" class="adapt-img" height="154" style="display:block;font-size:14px;border:0;outline:none;text-decoration:none"></td>
+                      <td align="center" style="padding:0;Margin:0;font-size:0"><!--TODO link vor veröffentlichung ändern, dazu wird die URL auf der unsere page läuft benötigt!--><img src="https://eebzfjc.stripocdn.email/content/guids/CABINET_5eaa7f45a8aacc10d23953ae1850dad7c971c2bcc2ca34f35ad3f7755de75c84/images/favicon.png" alt="" class="adapt-img" height="154" style="display:block;font-size:14px;border:0;outline:none;text-decoration:none"></td>
                      </tr>
                    </table></td>
                  </tr>
@@ -41,7 +41,7 @@
                   <td align="left" style="padding:0;Margin:0;width:360px">
                    <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                      <tr>
-                      <td align="center" style="padding:0;Margin:0;font-size:0"><a target="_blank" href="http://tls-gi.eu/" style="mso-line-height-rule:exactly;text-decoration:underline;color:#2CB543;font-size:14px"><img src="https://eebzfjc.stripocdn.email/content/guids/CABINET_5eaa7f45a8aacc10d23953ae1850dad7c971c2bcc2ca34f35ad3f7755de75c84/images/tls_startseite.png" alt="Logo der Theodor-Litt-Schule" class="adapt-img" title="Logo der Theodor-Litt-Schule" height="154" style="display:block;font-size:14px;border:0;outline:none;text-decoration:none"></a></td>
+                      <td align="center" style="padding:0;Margin:0;font-size:0"><a target="_blank" href="http://tls-gi.eu/" style="mso-line-height-rule:exactly;text-decoration:underline;color:#2CB543;font-size:14px"><img src="http://wp.tls-gi.de/wp-content/uploads/2017/01/TLS_Startseite.png" alt="Logo der Theodor-Litt-Schule" class="adapt-img" title="Logo der Theodor-Litt-Schule" height="154" style="display:block;font-size:14px;border:0;outline:none;text-decoration:none"></a></td>
                      </tr>
                    </table></td>
                  </tr>
@@ -92,7 +92,7 @@
                   <td align="left" style="padding:0;Margin:0;width:270px">
                    <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                      <tr>
-                      <td align="center" style="padding:0;Margin:0;font-size:0"><a target="_blank" href="https://www.ukgm.de/home.html" style="mso-line-height-rule:exactly;text-decoration:underline;color:#2CB543;font-size:14px"><img src="https://eebzfjc.stripocdn.email/content/guids/CABINET_5eaa7f45a8aacc10d23953ae1850dad7c971c2bcc2ca34f35ad3f7755de75c84/images/ukgm_logo_15_1z_ugm.png" alt="Logo des Universitätsklinikums Giessen-Marburg" class="adapt-img" title="Logo des Universitätsklinikums Giessen-Marburg" height="69" style="display:block;font-size:14px;border:0;outline:none;text-decoration:none"></a></td>
+                      <td align="center" style="padding:0;Margin:0;font-size:0"><a target="_blank" href="https://www.ukgm.de/home.html" style="mso-line-height-rule:exactly;text-decoration:underline;color:#2CB543;font-size:14px"><img src="https://www.ukgm.de/ugm_2/deu/design/ukgm_logo_1.5_1z_ugm.svg" alt="Logo des Universitätsklinikums Giessen-Marburg" class="adapt-img" title="Logo des Universitätsklinikums Giessen-Marburg" height="69" style="display:block;font-size:14px;border:0;outline:none;text-decoration:none"></a></td>
                      </tr>
                    </table></td>
                  </tr>
