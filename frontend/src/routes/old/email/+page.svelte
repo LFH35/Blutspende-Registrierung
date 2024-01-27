@@ -42,7 +42,7 @@
                    <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                      <tr>
                       <td align="center" style="padding:0;Margin:0;font-size:0"><a target="_blank" href="http://tls-gi.eu/" style="mso-line-height-rule:exactly;text-decoration:underline;color:#2CB543;font-size:14px"><img src="http://wp.tls-gi.de/wp-content/uploads/2017/01/TLS_Startseite.png" alt="Logo der Theodor-Litt-Schule" class="adapt-img" title="Logo der Theodor-Litt-Schule" height="154" style="display:block;font-size:14px;border:0;outline:none;text-decoration:none"></a></td>
-                     </tr>
+                     </tr><br><br><br>
                    </table></td>
                  </tr>
                </table><!--[if mso]></td></tr></table><![endif]--></td>
@@ -50,9 +50,6 @@
            </table></td>
          </tr>    
        </table>
-       <br>
-       <br>
-       <br>
        <table class="es-content" cellspacing="0" cellpadding="0" align="center" role="none" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;width:100%;table-layout:fixed !important">
          <tr>
           <td align="center" style="padding:0;Margin:0">
@@ -65,7 +62,7 @@
                    <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                      <tr>
                       <td align="left" style="padding:0;Margin:0"><h1 align="center" style="Margin:0;font-family:arial, 'helvetica neue', helvetica, sans-serif;mso-line-height-rule:exactly;letter-spacing:0;font-size:30px;font-style:normal;font-weight:normal;line-height:36px;color:#333333">BUCHUNGSBESTÄTIGUNG</h1><p style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;color:#333333;font-size:14px"><br></p><p align="center" style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;color:#333333;font-size:14px">Guten Tag <!--{current_user.name}-->, sie haben soeben erfolgreich ihren Blutspendetermin gebucht. Ihr Termin findet am <!--{date.replace('-', '.', 2)} um {time[:2]}:{time[2:]}--> in der Aula der Theodor-Litt-Schule Gießen statt. Wir bitten sie darum Pünktlich zu erscheinen.</p><br><br><p style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;color:#333333;font-size:14px"></p><p style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;color:#333333;font-size:14px">Mit freundlichen Grüßen</p><p style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;color:#333333;font-size:14px">Ihr Blutspendeteam der Theodor-Litt Schule Gießen in Kooperation mit dem UKGM Gießen - Marburg</p><p style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;color:#333333;font-size:14px">Mail: <a target="_blank" href="mailto:blutspenden@tls-giessen.eu?subject=Mein%20Blutspendetermin" style="mso-line-height-rule:exactly;text-decoration:underline;color:#2CB543;font-size:14px">blutspenden@tls-giessen.eu</a></p><p style="Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;color:#333333;font-size:14px">Tel: <a target="_blank" href="tel:064198558557" style="mso-line-height-rule:exactly;text-decoration:underline;color:#2CB543;font-size:14px">0641/985-58557</a></p></td>
-                     </tr>
+                     </tr><br><br><br>
                    </table></td>
                  </tr>
                </table></td>
@@ -73,9 +70,6 @@
            </table></td>
          </tr>
        </table>
-       <br>
-       <br>
-       <br>
        <table class="es-footer" cellspacing="0" cellpadding="0" align="center" role="none" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;width:100%;table-layout:fixed !important;background-color:transparent;background-repeat:repeat;background-position:center top">
          <tr>
           <td align="center" style="padding:0;Margin:0">
