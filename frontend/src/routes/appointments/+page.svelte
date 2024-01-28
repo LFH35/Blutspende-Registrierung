@@ -39,7 +39,7 @@
 
 
 <h2>Bitte wählen Sie einen Termin</h2>
-<h3>Datum: {slots[0]}</h3>
+<h3 class='date'>Datum: {slots[0]}</h3>
 <div class="appointments">
     {#each slots.slice(1, -1) as slot}
         {#if slot[1] === 0}

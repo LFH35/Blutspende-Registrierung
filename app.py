@@ -185,9 +185,9 @@ def set_appointment():
     appointment_check = Doner.get(user_id).appointment
     if not appointment_check:
         Appointment.add_doner(appointment_date, int(time), user_id)
-        send_confirmation_email(Doner.get(user_id), mail_date, time)
+        send_confirmation_email(Doner.get(user_id), user_id, mail_date, time)
 
-    return redirect(os.getenv("FRONTENT_DOMAIN") + "/" + user_id + "/success")
+    return redirect(os.getenv("FRONTENT_DOMAIN") + "/success")
 
 
 # ----------------------------------

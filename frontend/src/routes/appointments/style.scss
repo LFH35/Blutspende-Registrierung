@@ -56,10 +56,15 @@
 }
 
 .legend {
-    margin-top: 15px;
+    margin-top: 25px;
     display: grid;
     grid-template-columns: auto auto;
-    gap: 0 15px;
+    gap: 15px;
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
 
     .dot {
         padding: 10px 25px;
@@ -83,5 +88,9 @@
     .dot-green {
         background-color: $green;
     }
+}
+
+.date {
+    margin-top: -5px;
 }
 
