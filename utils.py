@@ -82,7 +82,7 @@ def send_confirmation_email(current_user, user_id, date, time):
                   <td class="es-m-p0r es-m-p20b" valign="top" align="center" style="padding:0;Margin:0;width:180px">
                    <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                      <tr>
-                      <td align="center" style="padding:0;Margin:0;font-size:0"><!--TODO link vor veröffentlichung ändern, dazu wird die URL auf der unsere page läuft benötigt!--><img src="https://novacodes.eu/ressources/blutspende-checkliste" alt="Blutspenden Checkliste" class="adapt-img" height="154" style="display:block;font-size:14px;border:0;outline:none;text-decoration:none"></td>
+                      <td align="center" style="padding:0;Margin:0;font-size:0"><!--TODO link vor veröffentlichung ändern, dazu wird die URL auf der unsere page läuft benötigt!--><img src="https://novacodes.eu/resources/blutspende-checkliste" alt="Blutspenden Checkliste" class="adapt-img" height="154" style="display:block;font-size:14px;border:0;outline:none;text-decoration:none"></td>
                      </tr>
                    </table></td>
                  </tr>
@@ -92,7 +92,7 @@ def send_confirmation_email(current_user, user_id, date, time):
                   <td align="left" style="padding:0;Margin:0;width:360px">
                    <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                      <tr>
-                      <td align="center" style="padding:0;Margin:0;font-size:0"><a target="_blank" href="http://tls-gi.eu/" style="mso-line-height-rule:exactly;text-decoration:underline;color:#2CB543;font-size:14px"><img src="https://novacodes.eu/ressources/tls-logo" alt="Logo der Theodor-Litt-Schule" class="adapt-img" title="Logo der Theodor-Litt-Schule" height="154" style="display:block;font-size:14px;border:0;outline:none;text-decoration:none"></a></td>
+                      <td align="center" style="padding:0;Margin:0;font-size:0"><a target="_blank" href="http://tls-gi.eu/" style="mso-line-height-rule:exactly;text-decoration:underline;color:#2CB543;font-size:14px"><img src="https://novacodes.eu/resources/tls-logo" alt="Logo der Theodor-Litt-Schule" class="adapt-img" title="Logo der Theodor-Litt-Schule" height="154" style="display:block;font-size:14px;border:0;outline:none;text-decoration:none"></a></td>
                      </tr><br><br><br>
                    </table></td>
                  </tr>
@@ -143,7 +143,7 @@ def send_confirmation_email(current_user, user_id, date, time):
                   <td align="left" style="padding:0;Margin:0;width:270px">
                    <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                      <tr>
-                      <td align="center" style="padding:0;Margin:0;font-size:0"><a target="_blank" href="https://www.ukgm.de/home.html" style="mso-line-height-rule:exactly;text-decoration:underline;color:#2CB543;font-size:14px"><img src="https://novacodes.eu/ressources/ukgm-logo" alt="Logo des Universitätsklinikums Giessen-Marburg" class="adapt-img" title="Logo des Universitätsklinikums Giessen-Marburg" height="69" style="display:block;font-size:14px;border:0;outline:none;text-decoration:none"></a></td>
+                      <td align="center" style="padding:0;Margin:0;font-size:0"><a target="_blank" href="https://www.ukgm.de/home.html" style="mso-line-height-rule:exactly;text-decoration:underline;color:#2CB543;font-size:14px"><img src="https://novacodes.eu/resources/ukgm-logo" alt="Logo des Universitätsklinikums Giessen-Marburg" class="adapt-img" title="Logo des Universitätsklinikums Giessen-Marburg" height="69" style="display:block;font-size:14px;border:0;outline:none;text-decoration:none"></a></td>
                      </tr>
                    </table></td>
                  </tr>
