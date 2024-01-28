@@ -6,20 +6,20 @@ export default defineConfig({
 	plugins: [sveltekit()],
 	server: {
 				port:5173,
-        https: {
-            key: fs.readFileSync(`${__dirname}/cert/key.pem`),
-            cert: fs.readFileSync(`${__dirname}/cert/cert.pem`)
-        },
+        // https: {
+        //     key: fs.readFileSync(`${__dirname}/cert/key.pem`),
+        //     cert: fs.readFileSync(`${__dirname}/cert/cert.pem`)
+        // },
 				hmr: {
 					overlay: false,
 				}
     },
 	preview: {
 		port:5173,
-        https: {
-            key: fs.readFileSync(`${__dirname}/cert/key.pem`),
-            cert: fs.readFileSync(`${__dirname}/cert/cert.pem`)
-        },
+        // https: {
+        //     key: fs.readFileSync(`${__dirname}/cert/key.pem`),
+        //     cert: fs.readFileSync(`${__dirname}/cert/cert.pem`)
+        // },
 				hmr: {
 					overlay: false,
 				}
