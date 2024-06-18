@@ -12,9 +12,9 @@
     import { onMount } from "svelte";
 
     let slots = [];
-
     onMount(async () => {
         try {
+            // process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
             const response = await fetch("https://localhost:5000/appointments", {
                 method: "GET",
                 cache: "no-cache",
@@ -25,6 +25,7 @@
             });
 
             slots = await response.json();
+            console.log()
         } catch (error) {
             console.error("Fetch error:", error);
         }

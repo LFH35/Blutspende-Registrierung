@@ -127,7 +127,7 @@ def processing():
 @app.route("/appointments")
 def appointments():
     # GET the nearest date on today
-    Appointment.add_appointment("2024-02-06")
+    Appointment.add_appointment("2024-07-02")
     today = date.today()
     old_dates = Appointment.get_dates()
     new_dates = []
